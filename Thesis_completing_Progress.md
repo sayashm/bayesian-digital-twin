@@ -8,8 +8,8 @@
 
 | Item | Status | Target Date | Notes |
 |------|--------|-------------|-------|
-| Overleaf project created | 🔄 | Day 1 | thesis/ folder ready; upload to Overleaf manually |
-| GitHub repo created | 🔄 | Day 1 | `particle_twin` package skeleton done; push to GitHub |
+| Overleaf project created | ✅ | Day 1 | Live at Overleaf (Bayesian_DT_Thesis_Ayashm) |
+| GitHub repo created | ✅ | Day 1 | https://github.com/sayashm/bayesian-digital-twin |
 | SQLite schema designed | ✅ | Day 1 | 4 tables in database.py; schema verified |
 | Supervisor report sent | ⬜ | Day 12 | 1–2 pages, one figure, one question |
 | First draft to supervisor | ⬜ | July 15 | Required ≥1 month before defense |
@@ -120,4 +120,4 @@
 | Date | What was done | Next session starts with |
 |------|--------------|--------------------------|
 | 2026-06-28 | Planning session — all 4 guide files created | Day 1: infrastructure setup |
-| 2026-06-29 | Day 1 complete: particle_twin package (loader.py, database.py, all stubs); SQLite schema verified; thesis_outline.md; thesis/ LaTeX folder ready for Overleaf | Day 2: design degradation state space model; implement state_space.py |
+| 2026-06-29 | Day 1 complete: particle_twin package (loader.py, database.py, all stubs); SQLite schema verified; thesis_outline.md; thesis/ LaTeX on Overleaf; GitHub repo live at sayashm/bayesian-digital-twin; .venv created | Day 2: design degradation state space model on paper first, then implement state_space.py |
