@@ -4,11 +4,13 @@ loader.py — C-MAPSS dataset reader
 Loads all four C-MAPSS sub-datasets (FD001–FD004) from the NASA data files.
 
 C-MAPSS column layout (no header in raw files):
-  0        : engine_id
-  1        : cycle
-  2–4      : operational settings (op1, op2, op3)
-  5–26     : sensor readings (s1 … s21)  [21 sensors]
-  27 (test): RUL ground truth (only in RUL_FD00X.txt files)
+  0    : unit_id
+  1    : cycle
+  2–4  : operational settings (setting_1, setting_2, setting_3)
+  5–25 : sensor readings (T2 … W32)  [21 sensors, physical names]
+
+Column names match the official C-MAPSS readme (Damage Propagation Modeling.pdf)
+and are consistent with the IDA/EDA notebooks.
 
 Usage
 -----
@@ -21,24 +23,47 @@ Usage
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
-# Raw C-MAPSS files have no header; these are the canonical column names.
+# Raw C-MAPSS files have no header; column names follow the official readme.
+_SENSOR_NAMES = [
+    "T2",          # Total temperature at fan inlet (°R)
+    "T24",         # Total temperature at LPC outlet (°R)
+    "T30",         # Total temperature at HPC outlet (°R)
+    "T50",         # Total temperature at LPT outlet (°R)
+    "P2",          # Pressure at fan inlet (psia)
+    "P15",         # Total pressure in bypass-duct (psia)
+    "P30",         # Total pressure at HPC outlet (psia)
+    "Nf",          # Physical fan speed (rpm)
+    "Nc",          # Physical core speed (rpm)
+    "epr",         # Engine pressure ratio (P50/P2)
+    "Ps30",        # Static pressure at HPC outlet (psia)
+    "phi",         # Ratio of fuel flow to Ps30
+    "NRf",         # Corrected fan speed (rpm)
+    "NRc",         # Corrected core speed (rpm)
+    "BPR",         # Bypass ratio
+    "farB",        # Burner fuel-air ratio
+    "htBleed",     # Bleed enthalpy
+    "Nf_dmd",      # Demanded fan speed (rpm)
+    "PCNfR_dmd",   # Demanded corrected fan speed (rpm)
+    "W31",         # HPT coolant bleed (lbm/s)
+    "W32",         # LPT coolant bleed (lbm/s)
+]
+
 _COLUMNS = (
-    ["engine_id", "cycle"]
-    + [f"op{i}" for i in range(1, 4)]
-    + [f"s{i}" for i in range(1, 22)]
+    ["unit_id", "cycle"]
+    + ["setting_1", "setting_2", "setting_3"]
+    + _SENSOR_NAMES
 )
 
-# Sensors that carry degradation signal (selected by literature consensus).
-# Sensors with near-zero variance are excluded.
-INFORMATIVE_SENSORS = ["s2", "s3", "s4", "s7", "s8", "s9",
-                       "s11", "s12", "s13", "s14", "s15",
-                       "s17", "s20", "s21"]
+# Sensors confirmed informative by IDA (non-zero variance, carry degradation signal).
+# Constant sensors excluded: T2, P2, P15, epr, farB, Nf_dmd, PCNfR_dmd.
+INFORMATIVE_SENSORS = [
+    "T24", "T30", "T50", "P30", "Nf", "Nc",
+    "Ps30", "phi", "NRf", "NRc", "BPR", "htBleed", "W31", "W32",
+]
 
 DATASETS = ["FD001", "FD002", "FD003", "FD004"]
 
@@ -65,13 +90,14 @@ class CMAPSSLoader:
         """
         Load the training split for *dataset* (e.g. 'FD001').
 
-        Adds a 'rul' column computed from max cycle per engine
-        (piece-wise linear capping is NOT applied here — the model
-        will handle health index transformation).
+        Adds a 'rul' column: max_cycle_per_engine - current_cycle.
+        Piece-wise linear RUL capping is NOT applied here — the state
+        space model handles the health index transformation.
 
         Returns
         -------
-        pd.DataFrame with columns: engine_id, cycle, op1-3, s1-21, rul
+        pd.DataFrame with columns: unit_id, cycle, setting_1-3,
+                                   T2…W32 (21 sensors), rul
         """
         self._check_dataset(dataset)
         df = self._read_txt(f"train_{dataset}.txt")
@@ -82,12 +108,12 @@ class CMAPSSLoader:
         """
         Load the test split for *dataset*.
 
-        Test sequences are *truncated* (we do not observe failure).
-        No 'rul' column is added here; use load_rul() for ground truth.
+        Test sequences are truncated (failure not observed).
+        No 'rul' column is added; use load_rul() for ground-truth labels.
 
         Returns
         -------
-        pd.DataFrame with columns: engine_id, cycle, op1-3, s1-21
+        pd.DataFrame with columns: unit_id, cycle, setting_1-3, T2…W32
         """
         self._check_dataset(dataset)
         return self._read_txt(f"test_{dataset}.txt")
@@ -96,47 +122,47 @@ class CMAPSSLoader:
         """
         Load the ground-truth RUL for every test engine in *dataset*.
 
-        The file RUL_FD00X.txt contains one RUL value per line,
-        where line i corresponds to test engine i+1.
+        RUL_FD00X.txt contains one value per line; line i corresponds
+        to test engine i+1 (unit_id is 1-indexed).
 
         Returns
         -------
-        pd.DataFrame with columns: engine_id (1-indexed), true_rul
+        pd.DataFrame with columns: unit_id (1-indexed), true_rul
         """
         self._check_dataset(dataset)
         path = self.data_dir / f"RUL_{dataset}.txt"
         rul_values = pd.read_csv(path, header=None, names=["true_rul"])
-        rul_values.index = rul_values.index + 1   # engine IDs start at 1
-        rul_values.index.name = "engine_id"
+        rul_values.index = rul_values.index + 1   # unit IDs start at 1
+        rul_values.index.name = "unit_id"
         return rul_values.reset_index()
 
-    def get_engine_ids(self, dataset: str, split: str = "test") -> list[int]:
-        """Return sorted list of engine IDs in the given split."""
+    def get_unit_ids(self, dataset: str, split: str = "test") -> list[int]:
+        """Return sorted list of unit IDs in the given split."""
         if split == "train":
             df = self.load_train(dataset)
         else:
             df = self.load_test(dataset)
-        return sorted(df["engine_id"].unique().tolist())
+        return sorted(df["unit_id"].unique().tolist())
 
-    def get_engine(self, dataset: str, engine_id: int,
+    def get_engine(self, dataset: str, unit_id: int,
                    split: str = "test") -> pd.DataFrame:
         """
         Return time-series data for a single engine.
 
         Parameters
         ----------
-        dataset   : e.g. 'FD001'
-        engine_id : integer engine identifier (1-indexed)
-        split     : 'train' or 'test'
+        dataset : e.g. 'FD001'
+        unit_id : integer engine identifier (1-indexed)
+        split   : 'train' or 'test'
         """
         if split == "train":
             df = self.load_train(dataset)
         else:
             df = self.load_test(dataset)
-        engine_df = df[df["engine_id"] == engine_id].copy()
+        engine_df = df[df["unit_id"] == unit_id].copy()
         if engine_df.empty:
             raise ValueError(
-                f"Engine {engine_id} not found in {dataset} {split} split."
+                f"unit_id {unit_id} not found in {dataset} {split} split."
             )
         return engine_df.reset_index(drop=True)
 
@@ -166,20 +192,18 @@ class CMAPSSLoader:
             names=_COLUMNS,
             engine="python",
         )
-        df["engine_id"] = df["engine_id"].astype(int)
+        df["unit_id"] = df["unit_id"].astype(int)
         df["cycle"] = df["cycle"].astype(int)
         return df
 
     @staticmethod
     def _add_rul_train(df: pd.DataFrame) -> pd.DataFrame:
         """
-        Compute piece-wise linear RUL for the training set.
-
-        RUL at cycle t for engine e = (max_cycle_e - t).
-        This gives the true RUL assuming failure at the last observed cycle.
+        Compute RUL for the training set.
+        RUL at cycle t for unit u = max_cycle_u - t.
         """
-        max_cycle = df.groupby("engine_id")["cycle"].max().rename("max_cycle")
-        df = df.join(max_cycle, on="engine_id")
+        max_cycle = df.groupby("unit_id")["cycle"].max().rename("max_cycle")
+        df = df.join(max_cycle, on="unit_id")
         df["rul"] = df["max_cycle"] - df["cycle"]
         df.drop(columns=["max_cycle"], inplace=True)
         return df

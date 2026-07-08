@@ -3,6 +3,20 @@ __pycache__/
 *.pyc
 .DS_Store
 results.db
+results.db-journal
 data/cmapss/
 *.egg-info/
 .ipynb_checkpoints/
+*.tmp
+
+# LaTeX build artifacts (local compilation via VS Code)
+thesis/*.aux
+thesis/*.log
+thesis/*.out
+thesis/*.toc
+thesis/*.bbl
+thesis/*.blg
+thesis/*.fdb_latexmk
+thesis/*.fls
+thesis/*.synctex.gz
+thesis/*.pdf
