@@ -1,0 +1,3 @@
+Dataset,Operating conditions,Fault mode(s),Train engines,Test engines,Train rows,Test rows,Train cycle length (min/median/max),Test cycle length (min/median/max),Test true_rul (min/median/max)
+FD001,1,HPC degradation,100,100,20631,13096,128/199/362,31/133/303,7/86/145
+FD003,1,HPC + Fan degradation,100,100,24720,16596,145/220/525,38/148/475,6/77/145

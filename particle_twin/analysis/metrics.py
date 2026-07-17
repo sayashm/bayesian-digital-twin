@@ -27,12 +27,20 @@ chapter) are then the final-cycle errors aggregated with sqrt(mean(.))
 / mean(.) across all engines — NOT the per-engine trajectory error,
 which is a diagnostic, not the reported metric.
 
-Deliberately NOT implemented here (scope note)
+Day 9 addition
 ------------------------------------------------
-The PHM08 asymmetric scoring function (penalises late predictions more
-than early ones) is standard in the C-MAPSS literature but was not asked
-for on Day 5 and isn't needed until the baseline comparison (§4.6,
-Day 9), so it is left out for now rather than guessed at.
+Two more metrics needed for the baseline comparison (§4.6) and the
+calibration argument (§4.2): phm08_score/phm08_total_score (the
+asymmetric PHM08 competition score) and ci_coverage (credible interval
+calibration check). Written by Sajjad step by step, reviewed each step
+-- two real bugs caught: phm08_total_score initially returned a bare
+np.sum() result (np.float64, not float, breaking the file's own
+convention and the same numpy-scalar/JSON issue documented in
+run_full_fd001.py's _json_default); ci_coverage's boolean mask was
+first written as an unparenthesised chained comparison with `&`
+(`lower <= true & true <= upper`), which is a real Python operator-
+precedence trap -- `&` binds tighter than `<=`, so without parentheses
+around each comparison it does not evaluate to what it looks like.
 """
 
 from __future__ import annotations
@@ -184,6 +192,76 @@ def evaluate_engine(trajectory: list[dict], true_rul: float, n_cycles: int,
     }
     out.update(ess_summary(ess_values, n_particles=n_particles))
     return out
+
+
+# ----------------------------------------------------------------------
+# PHM08 asymmetric score (Day 9)
+# ----------------------------------------------------------------------
+
+def phm08_score(preds, trues) -> np.ndarray:
+    """
+    PHM08 competition scoring function (Saxena et al. 2008), element-wise.
+
+    d = pred - true (signed error, e.g. at the final observed cycle)
+      d < 0  (predicted RUL is LESS than true  -- early/conservative):
+              score = exp(-d / 13) - 1
+      d >= 0 (predicted RUL is MORE than true  -- late/dangerous):
+              score = exp(d / 10) - 1
+
+    Asymmetric on purpose: overestimating RUL is penalised faster
+    (denominator 10) than underestimating it (denominator 13), because
+    the engine can fail before a late prediction says it will.
+
+    Parameters
+    ----------
+    preds, trues : array-like, same shape.
+
+    Returns
+    -------
+    np.ndarray of per-element scores (same shape as input). Every score
+    is >= 0; 0 is a perfect prediction.
+    """
+    d = np.asarray(preds, dtype=float) - np.asarray(trues, dtype=float)
+    return np.where(d < 0, np.exp(-d / 13) - 1, np.exp(d / 10) - 1)
+
+
+def phm08_total_score(preds, trues) -> float:
+    """
+    Sum of phm08_score() across all engines -- the single number the
+    PHM08 competition itself reported (lower is better, 0 is perfect).
+    """
+    return float(np.sum(phm08_score(preds=preds, trues=trues)))
+
+
+# ----------------------------------------------------------------------
+# Credible interval coverage / calibration (Day 9)
+# ----------------------------------------------------------------------
+
+def ci_coverage(trues, lowers, uppers) -> float:
+    """
+    Fraction of engines whose true RUL falls inside [lower, upper]
+    (e.g. rul_p5 / rul_p95 at the final observed cycle -- the 90% CI
+    already stored per cycle by rul.py / database.py).
+
+    A well-calibrated 90% interval should cover close to 0.90 of
+    engines. Much lower -> intervals too narrow (overconfident). Much
+    higher -> intervals too wide (overly conservative, uninformative).
+
+    Parameters
+    ----------
+    trues, lowers, uppers : array-like, same length -- one entry per
+        engine (or per cycle, depending what you're checking
+        calibration over).
+
+    Returns
+    -------
+    float in [0, 1] -- the empirical coverage fraction.
+    """
+    trues_arr = np.asarray(trues, dtype=float)
+    lowers_arr = np.asarray(lowers, dtype=float)
+    uppers_arr = np.asarray(uppers, dtype=float)
+    mask = (lowers_arr <= trues_arr) & (trues_arr <= uppers_arr)
+    return float(np.mean(mask))
 
 
 def evaluate_fleet(engine_evaluations: list[dict]) -> dict:
