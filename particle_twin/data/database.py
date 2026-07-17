@@ -104,6 +104,14 @@ class ResultsDB:
         self._conn = sqlite3.connect(self.db_path)
         self._conn.row_factory = sqlite3.Row   # dict-like row access
         self._conn.execute("PRAGMA foreign_keys = ON;")
+        # WAL mode avoids the classic rollback-journal dance (a stale
+        # "-journal" file left behind after an interrupted/failed write,
+        # which then blocks every subsequent open until manually removed --
+        # hit repeatedly on this project, both from the Cowork sandbox
+        # mount and from DB Browser locally). WAL instead appends to a
+        # "-wal" file and checkpoints it back into the main file
+        # automatically; it is the standard fix for exactly this symptom.
+        self._conn.execute("PRAGMA journal_mode=WAL;")
         self._initialise_schema()
 
     # ------------------------------------------------------------------

@@ -4,10 +4,16 @@ __pycache__/
 .DS_Store
 results.db
 results.db-journal
+results.db-wal
+results.db.bak*
 data/cmapss/
 *.egg-info/
 .ipynb_checkpoints/
 *.tmp
+
+# Sandbox/mount artifacts (Cowork session), not real project files
+mount_write_test*
+.fuse_hidden*
 
 # LaTeX build artifacts (local compilation via VS Code)
 thesis/*.aux
@@ -20,3 +26,5 @@ thesis/*.fdb_latexmk
 thesis/*.fls
 thesis/*.synctex.gz
 thesis/*.pdf
+thesis/*.lof
+thesis/*.lot

@@ -145,7 +145,7 @@
 | Time | Task |
 |------|------|
 | 9–11 | Run PF on FD001 — all test engines, all metrics logged to DB |
-| 11–1 | Run on FD003 (multiple operating conditions — harder case) |
+| 11–1 | Run on FD003 (single condition, two fault modes — harder case; corrected Day 9 from the earlier "multiple operating conditions" mislabel, which actually describes FD002/FD004) |
 | 2–4 | Implement simple baseline (e.g., linear regression on degradation sensors for RUL) |
 | 4–6 | *Write:* Experiments chapter setup (§4.1 dataset, §4.2 evaluation metrics, §4.3 experimental setup) |
 

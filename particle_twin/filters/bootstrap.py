@@ -53,17 +53,19 @@ class BootstrapPF:
     y = self.model.observe(df=engine_df).to_numpy()
     h = self.model.sample_initial(self.n_particles)
     log_w = np.full(self.n_particles, -np.log(self.n_particles))
-
+    self.log_likelihood_total = 0.0
     self.history.append({'cycle_number': 0, 'particles': h, 'weights': log_w, 'ESS': self.ESS(log_w)})
 
     for i, t in enumerate(cycles):
+      before = logsumexp(log_w)
       h = self.model.transition(h)
       log_w = log_w + self.model.log_likelihood(h, y[i])
+      after = logsumexp(log_w)
+      self.log_likelihood_total += (after - before) 
       if self.ESS(log_w=log_w) < self.ess_threshold * self.n_particles:
         h, log_w = self.resample(h, log_w)
-
+      
       self.history.append({'cycle_number': t, 'particles': h, 'weights': log_w, 'ESS': self.ESS(log_w)})
-
       if self.verbose:
         print(f't: {t}, h_est = {np.average(h, weights=self.normalize(log_w)):.2f}, '
               f'ESS: {self.ESS(log_w):.2f}, N/2 = {self.n_particles * self.ess_threshold}')

@@ -28,7 +28,7 @@ A particle filter (Sequential Monte Carlo) serves as a principled digital twin m
 - Contains run-to-failure turbofan engine sensor data  
 - Ground truth RUL provided for test engines  
 - Start with FD001 (single operating condition, single fault mode — simplest case)  
-- Extend to FD003 (multiple operating conditions) for robustness testing
+- Extend to FD003 (single operating condition, **two fault modes**: HPC + Fan degradation) for robustness testing. **Correction (Day 9):** FD003 was previously mislabeled here as "multiple operating conditions" — that description actually belongs to FD002/FD004 (six operating conditions each), which the current pipeline does not yet support (no operating-condition-aware normalization in `health_index.py`/`degradation_learner.py`). FD003's robustness axis is an additional fault mode, not operating-condition variation.
 
 ### Thesis Structure (UGent MaStat)
 Following the `Writing_Templates/Templates/` LaTeX template:
@@ -87,16 +87,24 @@ Purpose: nothing is lost between sessions; all experiments are reproducible and 
 ## 4. How Claude Should Work in This Project
 
 ### 4.1 Writing Coaching
-Sajjad needs to *develop* his scientific writing, not have Claude write for him.
+**UPDATED 2026-07-17 (Day 8) — Sajjad explicitly changed this process due to limited remaining time.**
+The original "Sajjad writes first" rule below is superseded for the rest of the
+thesis. New process, chosen by Sajjad to stay involved despite Claude writing
+full prose now:
 
-**Process for every writing task:**
-1. Claude explains what the section needs to say and why (structure + intent)
-2. Sajjad writes a draft (even rough)
-3. Claude gives specific, line-level feedback — not rewrites
-4. Sajjad rewrites
-5. Claude approves or gives one more round of feedback
+**Process for every writing task (current):**
+1. Claude drafts a plain-language, simple-English version of the section's content first — ideas only, not polished academic prose. This is the content checkpoint: easier for Sajjad to judge "is this the right substance" than to critique dense academic English.
+2. Sajjad reads it and approves, or asks for changes to the content/ideas.
+3. Once approved, Claude writes the actual academic-style `.tex` prose directly into the file — calibrated to Sajjad's own voice/register (not overly polished/native-level English; see [[sajjad-language-simplicity]] memory).
+4. Sajjad reviews the final academic text, section by section, before moving to the next section (not one pass at the very end).
 
-**Never** write a full section for Sajjad unprompted. Push him to write first.
+**Superseded process (kept for reference, do not follow):**
+~~1. Claude explains what the section needs to say and why~~
+~~2. Sajjad writes a draft (even rough)~~
+~~3. Claude gives specific, line-level feedback — not rewrites~~
+~~4. Sajjad rewrites~~
+~~5. Claude approves or gives one more round of feedback~~
+~~Never write a full section for Sajjad unprompted. Push him to write first.~~
 
 **Tone to maintain:** Academic, precise, third-person. Avoid colloquial expressions. Every claim needs a citation or derivation.
 
