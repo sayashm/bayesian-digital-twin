@@ -1,0 +1,1404 @@
+{
+  "results": {
+    "1": {
+      "n_cycles": 31,
+      "true_rul": 112.0,
+      "pooled_only": {
+        "rul_median": 495.0,
+        "rul_p5": 357.0,
+        "rul_p95": 722.0
+      },
+      "one_shot": {
+        "rul_median": 329.0,
+        "rul_p5": 259.85,
+        "rul_p95": 444.14999999999986
+      }
+    },
+    "2": {
+      "n_cycles": 49,
+      "true_rul": 98.0,
+      "pooled_only": {
+        "rul_median": 378.0,
+        "rul_p5": 283.9,
+        "rul_p95": 518.0
+      },
+      "one_shot": {
+        "rul_median": 340.0,
+        "rul_p5": 259.95,
+        "rul_p95": 447.1999999999998
+      }
+    },
+    "3": {
+      "n_cycles": 126,
+      "true_rul": 69.0,
+      "pooled_only": {
+        "rul_median": 252.0,
+        "rul_p5": 186.0,
+        "rul_p95": 333.0
+      },
+      "one_shot": {
+        "rul_median": 241.0,
+        "rul_p5": 184.0,
+        "rul_p95": 326.0
+      }
+    },
+    "4": {
+      "n_cycles": 106,
+      "true_rul": 82.0,
+      "pooled_only": {
+        "rul_median": 275.0,
+        "rul_p5": 205.0,
+        "rul_p95": 384.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 269.5,
+        "rul_p5": 200.0,
+        "rul_p95": 351.1999999999998
+      }
+    },
+    "5": {
+      "n_cycles": 98,
+      "true_rul": 91.0,
+      "pooled_only": {
+        "rul_median": 287.0,
+        "rul_p5": 215.95,
+        "rul_p95": 386.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 249.5,
+        "rul_p5": 188.95,
+        "rul_p95": 332.0
+      }
+    },
+    "6": {
+      "n_cycles": 105,
+      "true_rul": 93.0,
+      "pooled_only": {
+        "rul_median": 296.5,
+        "rul_p5": 224.95,
+        "rul_p95": 398.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 288.0,
+        "rul_p5": 220.0,
+        "rul_p95": 383.04999999999995
+      }
+    },
+    "7": {
+      "n_cycles": 160,
+      "true_rul": 91.0,
+      "pooled_only": {
+        "rul_median": 382.5,
+        "rul_p5": 291.95,
+        "rul_p95": 544.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 263.0,
+        "rul_p5": 206.0,
+        "rul_p95": 344.04999999999995
+      }
+    },
+    "8": {
+      "n_cycles": 166,
+      "true_rul": 95.0,
+      "pooled_only": {
+        "rul_median": 284.0,
+        "rul_p5": 214.0,
+        "rul_p95": 380.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 247.0,
+        "rul_p5": 186.0,
+        "rul_p95": 323.0999999999999
+      }
+    },
+    "9": {
+      "n_cycles": 55,
+      "true_rul": 111.0,
+      "pooled_only": {
+        "rul_median": 349.0,
+        "rul_p5": 271.95,
+        "rul_p95": 473.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 328.0,
+        "rul_p5": 245.9,
+        "rul_p95": 447.0999999999999
+      }
+    },
+    "10": {
+      "n_cycles": 192,
+      "true_rul": 96.0,
+      "pooled_only": {
+        "rul_median": 339.0,
+        "rul_p5": 254.0,
+        "rul_p95": 454.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 208.0,
+        "rul_p5": 160.95,
+        "rul_p95": 260.04999999999995
+      }
+    },
+    "11": {
+      "n_cycles": 83,
+      "true_rul": 97.0,
+      "pooled_only": {
+        "rul_median": 282.5,
+        "rul_p5": 211.0,
+        "rul_p95": 370.0
+      },
+      "one_shot": {
+        "rul_median": 288.0,
+        "rul_p5": 215.0,
+        "rul_p95": 386.0
+      }
+    },
+    "12": {
+      "n_cycles": 217,
+      "true_rul": 124.0,
+      "pooled_only": {
+        "rul_median": 364.0,
+        "rul_p5": 272.0,
+        "rul_p95": 497.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 226.0,
+        "rul_p5": 180.0,
+        "rul_p95": 286.14999999999986
+      }
+    },
+    "13": {
+      "n_cycles": 195,
+      "true_rul": 95.0,
+      "pooled_only": {
+        "rul_median": 331.0,
+        "rul_p5": 252.0,
+        "rul_p95": 452.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 178.0,
+        "rul_p5": 144.0,
+        "rul_p95": 227.04999999999995
+      }
+    },
+    "14": {
+      "n_cycles": 46,
+      "true_rul": 107.0,
+      "pooled_only": {
+        "rul_median": 344.0,
+        "rul_p5": 258.0,
+        "rul_p95": 476.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 340.5,
+        "rul_p5": 260.0,
+        "rul_p95": 486.0
+      }
+    },
+    "15": {
+      "n_cycles": 76,
+      "true_rul": 83.0,
+      "pooled_only": {
+        "rul_median": 397.0,
+        "rul_p5": 295.95,
+        "rul_p95": 543.05
+      },
+      "one_shot": {
+        "rul_median": 227.5,
+        "rul_p5": 184.0,
+        "rul_p95": 295.0
+      }
+    },
+    "16": {
+      "n_cycles": 113,
+      "true_rul": 84.0,
+      "pooled_only": {
+        "rul_median": 399.5,
+        "rul_p5": 291.95,
+        "rul_p95": 554.05
+      },
+      "one_shot": {
+        "rul_median": 227.0,
+        "rul_p5": 180.95,
+        "rul_p95": 286.0999999999999
+      }
+    },
+    "17": {
+      "n_cycles": 165,
+      "true_rul": 50.0,
+      "pooled_only": {
+        "rul_median": 306.0,
+        "rul_p5": 226.95,
+        "rul_p95": 413.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 154.0,
+        "rul_p5": 123.0,
+        "rul_p95": 194.0
+      }
+    },
+    "18": {
+      "n_cycles": 133,
+      "true_rul": 28.0,
+      "pooled_only": {
+        "rul_median": 279.0,
+        "rul_p5": 213.95,
+        "rul_p95": 372.0
+      },
+      "one_shot": {
+        "rul_median": 162.0,
+        "rul_p5": 127.95,
+        "rul_p95": 201.04999999999995
+      }
+    },
+    "19": {
+      "n_cycles": 135,
+      "true_rul": 87.0,
+      "pooled_only": {
+        "rul_median": 365.0,
+        "rul_p5": 280.95,
+        "rul_p95": 497.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 189.0,
+        "rul_p5": 151.0,
+        "rul_p95": 233.0999999999999
+      }
+    },
+    "20": {
+      "n_cycles": 184,
+      "true_rul": 16.0,
+      "pooled_only": {
+        "rul_median": 191.0,
+        "rul_p5": 143.95,
+        "rul_p95": 260.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 126.0,
+        "rul_p5": 96.0,
+        "rul_p95": 164.04999999999995
+      }
+    },
+    "21": {
+      "n_cycles": 148,
+      "true_rul": 57.0,
+      "pooled_only": {
+        "rul_median": 383.0,
+        "rul_p5": 282.9,
+        "rul_p95": 522.0
+      },
+      "one_shot": {
+        "rul_median": 190.0,
+        "rul_p5": 152.95,
+        "rul_p95": 239.0
+      }
+    },
+    "22": {
+      "n_cycles": 39,
+      "true_rul": 111.0,
+      "pooled_only": {
+        "rul_median": 430.0,
+        "rul_p5": 333.95,
+        "rul_p95": 590.0
+      },
+      "one_shot": {
+        "rul_median": 409.0,
+        "rul_p5": 312.0,
+        "rul_p95": 575.0999999999999
+      }
+    },
+    "23": {
+      "n_cycles": 130,
+      "true_rul": 113.0,
+      "pooled_only": {
+        "rul_median": 422.5,
+        "rul_p5": 320.9,
+        "rul_p95": 584.05
+      },
+      "one_shot": {
+        "rul_median": 227.5,
+        "rul_p5": 180.0,
+        "rul_p95": 293.04999999999995
+      }
+    },
+    "24": {
+      "n_cycles": 186,
+      "true_rul": 20.0,
+      "pooled_only": {
+        "rul_median": 267.5,
+        "rul_p5": 203.95,
+        "rul_p95": 359.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 137.0,
+        "rul_p5": 109.0,
+        "rul_p95": 176.04999999999995
+      }
+    },
+    "25": {
+      "n_cycles": 48,
+      "true_rul": 145.0,
+      "pooled_only": {
+        "rul_median": 414.5,
+        "rul_p5": 306.0,
+        "rul_p95": 567.2999999999997
+      },
+      "one_shot": {
+        "rul_median": 278.0,
+        "rul_p5": 221.0,
+        "rul_p95": 361.0
+      }
+    },
+    "26": {
+      "n_cycles": 76,
+      "true_rul": 119.0,
+      "pooled_only": {
+        "rul_median": 412.0,
+        "rul_p5": 307.9,
+        "rul_p95": 574.1499999999999
+      },
+      "one_shot": {
+        "rul_median": 253.0,
+        "rul_p5": 200.95,
+        "rul_p95": 328.0
+      }
+    },
+    "27": {
+      "n_cycles": 140,
+      "true_rul": 66.0,
+      "pooled_only": {
+        "rul_median": 358.5,
+        "rul_p5": 265.0,
+        "rul_p95": 490.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 189.0,
+        "rul_p5": 153.0,
+        "rul_p95": 233.04999999999995
+      }
+    },
+    "28": {
+      "n_cycles": 158,
+      "true_rul": 97.0,
+      "pooled_only": {
+        "rul_median": 307.0,
+        "rul_p5": 231.9,
+        "rul_p95": 418.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 228.0,
+        "rul_p5": 177.0,
+        "rul_p95": 291.0999999999999
+      }
+    },
+    "29": {
+      "n_cycles": 171,
+      "true_rul": 90.0,
+      "pooled_only": {
+        "rul_median": 341.0,
+        "rul_p5": 259.0,
+        "rul_p95": 474.0
+      },
+      "one_shot": {
+        "rul_median": 206.0,
+        "rul_p5": 163.95,
+        "rul_p95": 259.04999999999995
+      }
+    },
+    "30": {
+      "n_cycles": 143,
+      "true_rul": 115.0,
+      "pooled_only": {
+        "rul_median": 266.0,
+        "rul_p5": 203.0,
+        "rul_p95": 359.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 238.0,
+        "rul_p5": 180.95,
+        "rul_p95": 316.0
+      }
+    },
+    "31": {
+      "n_cycles": 196,
+      "true_rul": 8.0,
+      "pooled_only": {
+        "rul_median": 175.0,
+        "rul_p5": 126.0,
+        "rul_p95": 239.0
+      },
+      "one_shot": {
+        "rul_median": 95.0,
+        "rul_p5": 75.0,
+        "rul_p95": 123.0
+      }
+    },
+    "32": {
+      "n_cycles": 145,
+      "true_rul": 48.0,
+      "pooled_only": {
+        "rul_median": 350.0,
+        "rul_p5": 264.95,
+        "rul_p95": 472.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 173.0,
+        "rul_p5": 139.95,
+        "rul_p95": 217.0
+      }
+    },
+    "33": {
+      "n_cycles": 50,
+      "true_rul": 106.0,
+      "pooled_only": {
+        "rul_median": 340.5,
+        "rul_p5": 256.85,
+        "rul_p95": 466.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 370.0,
+        "rul_p5": 276.0,
+        "rul_p95": 509.0
+      }
+    },
+    "34": {
+      "n_cycles": 203,
+      "true_rul": 7.0,
+      "pooled_only": {
+        "rul_median": 189.0,
+        "rul_p5": 140.0,
+        "rul_p95": 253.0
+      },
+      "one_shot": {
+        "rul_median": 89.0,
+        "rul_p5": 69.0,
+        "rul_p95": 111.04999999999995
+      }
+    },
+    "35": {
+      "n_cycles": 198,
+      "true_rul": 11.0,
+      "pooled_only": {
+        "rul_median": 157.5,
+        "rul_p5": 109.95,
+        "rul_p95": 220.0
+      },
+      "one_shot": {
+        "rul_median": 177.0,
+        "rul_p5": 124.0,
+        "rul_p95": 252.0999999999999
+      }
+    },
+    "36": {
+      "n_cycles": 126,
+      "true_rul": 19.0,
+      "pooled_only": {
+        "rul_median": 180.5,
+        "rul_p5": 136.9,
+        "rul_p95": 253.0
+      },
+      "one_shot": {
+        "rul_median": 202.0,
+        "rul_p5": 146.95,
+        "rul_p95": 279.0
+      }
+    },
+    "37": {
+      "n_cycles": 121,
+      "true_rul": 21.0,
+      "pooled_only": {
+        "rul_median": 280.0,
+        "rul_p5": 204.95,
+        "rul_p95": 387.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 150.0,
+        "rul_p5": 117.95,
+        "rul_p95": 189.0
+      }
+    },
+    "38": {
+      "n_cycles": 125,
+      "true_rul": 50.0,
+      "pooled_only": {
+        "rul_median": 233.0,
+        "rul_p5": 169.95,
+        "rul_p95": 305.0
+      },
+      "one_shot": {
+        "rul_median": 258.0,
+        "rul_p5": 187.0,
+        "rul_p95": 338.14999999999986
+      }
+    },
+    "39": {
+      "n_cycles": 37,
+      "true_rul": 142.0,
+      "pooled_only": {
+        "rul_median": 497.0,
+        "rul_p5": 373.95,
+        "rul_p95": 723.4499999999996
+      },
+      "one_shot": {
+        "rul_median": 294.5,
+        "rul_p5": 232.0,
+        "rul_p95": 391.0
+      }
+    },
+    "40": {
+      "n_cycles": 133,
+      "true_rul": 28.0,
+      "pooled_only": {
+        "rul_median": 195.5,
+        "rul_p5": 146.95,
+        "rul_p95": 261.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 210.0,
+        "rul_p5": 158.0,
+        "rul_p95": 284.0
+      }
+    },
+    "41": {
+      "n_cycles": 123,
+      "true_rul": 18.0,
+      "pooled_only": {
+        "rul_median": 280.0,
+        "rul_p5": 204.95,
+        "rul_p95": 379.0
+      },
+      "one_shot": {
+        "rul_median": 145.0,
+        "rul_p5": 116.95,
+        "rul_p95": 180.0
+      }
+    },
+    "42": {
+      "n_cycles": 156,
+      "true_rul": 10.0,
+      "pooled_only": {
+        "rul_median": 215.5,
+        "rul_p5": 162.0,
+        "rul_p95": 287.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 115.0,
+        "rul_p5": 91.0,
+        "rul_p95": 142.0
+      }
+    },
+    "43": {
+      "n_cycles": 172,
+      "true_rul": 59.0,
+      "pooled_only": {
+        "rul_median": 273.0,
+        "rul_p5": 206.0,
+        "rul_p95": 364.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 168.0,
+        "rul_p5": 132.0,
+        "rul_p95": 213.04999999999995
+      }
+    },
+    "44": {
+      "n_cycles": 54,
+      "true_rul": 109.0,
+      "pooled_only": {
+        "rul_median": 394.0,
+        "rul_p5": 289.0,
+        "rul_p95": 519.05
+      },
+      "one_shot": {
+        "rul_median": 335.5,
+        "rul_p5": 258.0,
+        "rul_p95": 438.04999999999995
+      }
+    },
+    "45": {
+      "n_cycles": 152,
+      "true_rul": 114.0,
+      "pooled_only": {
+        "rul_median": 258.0,
+        "rul_p5": 193.95,
+        "rul_p95": 353.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 251.0,
+        "rul_p5": 184.0,
+        "rul_p95": 335.04999999999995
+      }
+    },
+    "46": {
+      "n_cycles": 146,
+      "true_rul": 47.0,
+      "pooled_only": {
+        "rul_median": 254.0,
+        "rul_p5": 187.95,
+        "rul_p95": 340.0
+      },
+      "one_shot": {
+        "rul_median": 185.0,
+        "rul_p5": 146.95,
+        "rul_p95": 244.0
+      }
+    },
+    "47": {
+      "n_cycles": 73,
+      "true_rul": 135.0,
+      "pooled_only": {
+        "rul_median": 297.0,
+        "rul_p5": 221.0,
+        "rul_p95": 405.2499999999998
+      },
+      "one_shot": {
+        "rul_median": 312.5,
+        "rul_p5": 239.95,
+        "rul_p95": 431.0
+      }
+    },
+    "48": {
+      "n_cycles": 78,
+      "true_rul": 92.0,
+      "pooled_only": {
+        "rul_median": 339.5,
+        "rul_p5": 255.95,
+        "rul_p95": 455.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 293.0,
+        "rul_p5": 226.0,
+        "rul_p95": 388.0
+      }
+    },
+    "49": {
+      "n_cycles": 303,
+      "true_rul": 21.0,
+      "pooled_only": {
+        "rul_median": 191.0,
+        "rul_p5": 142.0,
+        "rul_p95": 256.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 115.0,
+        "rul_p5": 90.0,
+        "rul_p95": 149.0
+      }
+    },
+    "50": {
+      "n_cycles": 74,
+      "true_rul": 79.0,
+      "pooled_only": {
+        "rul_median": 381.5,
+        "rul_p5": 285.0,
+        "rul_p95": 501.0
+      },
+      "one_shot": {
+        "rul_median": 254.0,
+        "rul_p5": 200.0,
+        "rul_p95": 328.0
+      }
+    },
+    "51": {
+      "n_cycles": 144,
+      "true_rul": 114.0,
+      "pooled_only": {
+        "rul_median": 313.5,
+        "rul_p5": 238.0,
+        "rul_p95": 425.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 254.0,
+        "rul_p5": 197.95,
+        "rul_p95": 334.0
+      }
+    },
+    "52": {
+      "n_cycles": 189,
+      "true_rul": 29.0,
+      "pooled_only": {
+        "rul_median": 300.0,
+        "rul_p5": 224.95,
+        "rul_p95": 414.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 169.0,
+        "rul_p5": 133.0,
+        "rul_p95": 210.0
+      }
+    },
+    "53": {
+      "n_cycles": 164,
+      "true_rul": 26.0,
+      "pooled_only": {
+        "rul_median": 263.0,
+        "rul_p5": 197.95,
+        "rul_p95": 354.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 179.0,
+        "rul_p5": 139.0,
+        "rul_p95": 231.0
+      }
+    },
+    "54": {
+      "n_cycles": 121,
+      "true_rul": 97.0,
+      "pooled_only": {
+        "rul_median": 445.5,
+        "rul_p5": 331.95,
+        "rul_p95": 616.0
+      },
+      "one_shot": {
+        "rul_median": 250.0,
+        "rul_p5": 201.0,
+        "rul_p95": 328.04999999999995
+      }
+    },
+    "55": {
+      "n_cycles": 113,
+      "true_rul": 137.0,
+      "pooled_only": {
+        "rul_median": 371.0,
+        "rul_p5": 282.0,
+        "rul_p95": 507.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 268.0,
+        "rul_p5": 210.95,
+        "rul_p95": 365.14999999999986
+      }
+    },
+    "56": {
+      "n_cycles": 136,
+      "true_rul": 15.0,
+      "pooled_only": {
+        "rul_median": 169.0,
+        "rul_p5": 121.0,
+        "rul_p95": 241.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 190.0,
+        "rul_p5": 136.95,
+        "rul_p95": 266.04999999999995
+      }
+    },
+    "57": {
+      "n_cycles": 160,
+      "true_rul": 103.0,
+      "pooled_only": {
+        "rul_median": 274.0,
+        "rul_p5": 209.0,
+        "rul_p95": 369.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 236.0,
+        "rul_p5": 180.95,
+        "rul_p95": 307.0
+      }
+    },
+    "58": {
+      "n_cycles": 176,
+      "true_rul": 37.0,
+      "pooled_only": {
+        "rul_median": 245.0,
+        "rul_p5": 189.95,
+        "rul_p95": 335.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 162.5,
+        "rul_p5": 123.95,
+        "rul_p95": 210.0
+      }
+    },
+    "59": {
+      "n_cycles": 94,
+      "true_rul": 114.0,
+      "pooled_only": {
+        "rul_median": 439.5,
+        "rul_p5": 310.9,
+        "rul_p95": 600.05
+      },
+      "one_shot": {
+        "rul_median": 272.5,
+        "rul_p5": 214.0,
+        "rul_p95": 355.14999999999986
+      }
+    },
+    "60": {
+      "n_cycles": 147,
+      "true_rul": 100.0,
+      "pooled_only": {
+        "rul_median": 301.0,
+        "rul_p5": 225.95,
+        "rul_p95": 404.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 218.0,
+        "rul_p5": 169.0,
+        "rul_p95": 289.0
+      }
+    },
+    "61": {
+      "n_cycles": 159,
+      "true_rul": 21.0,
+      "pooled_only": {
+        "rul_median": 245.0,
+        "rul_p5": 182.0,
+        "rul_p95": 328.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 128.0,
+        "rul_p5": 101.0,
+        "rul_p95": 162.0
+      }
+    },
+    "62": {
+      "n_cycles": 232,
+      "true_rul": 54.0,
+      "pooled_only": {
+        "rul_median": 305.0,
+        "rul_p5": 233.9,
+        "rul_p95": 432.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 159.0,
+        "rul_p5": 129.0,
+        "rul_p95": 198.04999999999995
+      }
+    },
+    "63": {
+      "n_cycles": 155,
+      "true_rul": 72.0,
+      "pooled_only": {
+        "rul_median": 259.0,
+        "rul_p5": 192.0,
+        "rul_p95": 356.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 250.0,
+        "rul_p5": 189.95,
+        "rul_p95": 335.0999999999999
+      }
+    },
+    "64": {
+      "n_cycles": 168,
+      "true_rul": 28.0,
+      "pooled_only": {
+        "rul_median": 234.0,
+        "rul_p5": 168.95,
+        "rul_p95": 311.0
+      },
+      "one_shot": {
+        "rul_median": 164.0,
+        "rul_p5": 124.9,
+        "rul_p95": 211.04999999999995
+      }
+    },
+    "65": {
+      "n_cycles": 71,
+      "true_rul": 128.0,
+      "pooled_only": {
+        "rul_median": 473.0,
+        "rul_p5": 341.9,
+        "rul_p95": 650.2499999999998
+      },
+      "one_shot": {
+        "rul_median": 254.5,
+        "rul_p5": 204.0,
+        "rul_p95": 329.0
+      }
+    },
+    "66": {
+      "n_cycles": 147,
+      "true_rul": 14.0,
+      "pooled_only": {
+        "rul_median": 200.0,
+        "rul_p5": 145.0,
+        "rul_p95": 262.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 188.0,
+        "rul_p5": 146.95,
+        "rul_p95": 252.0999999999999
+      }
+    },
+    "67": {
+      "n_cycles": 71,
+      "true_rul": 77.0,
+      "pooled_only": {
+        "rul_median": 387.0,
+        "rul_p5": 299.0,
+        "rul_p95": 547.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 305.0,
+        "rul_p5": 235.0,
+        "rul_p95": 393.2999999999997
+      }
+    },
+    "68": {
+      "n_cycles": 187,
+      "true_rul": 8.0,
+      "pooled_only": {
+        "rul_median": 174.0,
+        "rul_p5": 128.95,
+        "rul_p95": 239.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 116.0,
+        "rul_p5": 87.0,
+        "rul_p95": 148.0
+      }
+    },
+    "69": {
+      "n_cycles": 54,
+      "true_rul": 121.0,
+      "pooled_only": {
+        "rul_median": 391.0,
+        "rul_p5": 294.95,
+        "rul_p95": 538.0
+      },
+      "one_shot": {
+        "rul_median": 339.5,
+        "rul_p5": 254.85000000000002,
+        "rul_p95": 450.0
+      }
+    },
+    "70": {
+      "n_cycles": 152,
+      "true_rul": 94.0,
+      "pooled_only": {
+        "rul_median": 296.0,
+        "rul_p5": 220.95,
+        "rul_p95": 390.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 253.0,
+        "rul_p5": 194.0,
+        "rul_p95": 338.04999999999995
+      }
+    },
+    "71": {
+      "n_cycles": 68,
+      "true_rul": 118.0,
+      "pooled_only": {
+        "rul_median": 405.5,
+        "rul_p5": 307.95,
+        "rul_p95": 552.0
+      },
+      "one_shot": {
+        "rul_median": 233.5,
+        "rul_p5": 184.95,
+        "rul_p95": 299.0
+      }
+    },
+    "72": {
+      "n_cycles": 131,
+      "true_rul": 50.0,
+      "pooled_only": {
+        "rul_median": 323.5,
+        "rul_p5": 243.95,
+        "rul_p95": 431.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 222.0,
+        "rul_p5": 176.0,
+        "rul_p95": 290.0
+      }
+    },
+    "73": {
+      "n_cycles": 112,
+      "true_rul": 131.0,
+      "pooled_only": {
+        "rul_median": 407.0,
+        "rul_p5": 307.95,
+        "rul_p95": 544.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 214.5,
+        "rul_p5": 173.0,
+        "rul_p95": 274.0
+      }
+    },
+    "74": {
+      "n_cycles": 137,
+      "true_rul": 126.0,
+      "pooled_only": {
+        "rul_median": 302.0,
+        "rul_p5": 228.9,
+        "rul_p95": 404.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 256.0,
+        "rul_p5": 197.95,
+        "rul_p95": 336.04999999999995
+      }
+    },
+    "75": {
+      "n_cycles": 88,
+      "true_rul": 113.0,
+      "pooled_only": {
+        "rul_median": 369.0,
+        "rul_p5": 277.85,
+        "rul_p95": 496.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 270.0,
+        "rul_p5": 209.95,
+        "rul_p95": 351.0
+      }
+    },
+    "76": {
+      "n_cycles": 205,
+      "true_rul": 10.0,
+      "pooled_only": {
+        "rul_median": 181.0,
+        "rul_p5": 135.0,
+        "rul_p95": 246.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 85.0,
+        "rul_p5": 66.0,
+        "rul_p95": 111.04999999999995
+      }
+    },
+    "77": {
+      "n_cycles": 162,
+      "true_rul": 34.0,
+      "pooled_only": {
+        "rul_median": 251.0,
+        "rul_p5": 188.95,
+        "rul_p95": 334.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 170.0,
+        "rul_p5": 133.0,
+        "rul_p95": 216.04999999999995
+      }
+    },
+    "78": {
+      "n_cycles": 72,
+      "true_rul": 107.0,
+      "pooled_only": {
+        "rul_median": 517.0,
+        "rul_p5": 392.85,
+        "rul_p95": 780.05
+      },
+      "one_shot": {
+        "rul_median": 295.5,
+        "rul_p5": 229.0,
+        "rul_p95": 402.14999999999986
+      }
+    },
+    "79": {
+      "n_cycles": 101,
+      "true_rul": 63.0,
+      "pooled_only": {
+        "rul_median": 333.5,
+        "rul_p5": 250.95,
+        "rul_p95": 455.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 228.0,
+        "rul_p5": 176.0,
+        "rul_p95": 284.04999999999995
+      }
+    },
+    "80": {
+      "n_cycles": 133,
+      "true_rul": 90.0,
+      "pooled_only": {
+        "rul_median": 305.5,
+        "rul_p5": 228.95,
+        "rul_p95": 420.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 256.0,
+        "rul_p5": 196.0,
+        "rul_p95": 340.0999999999999
+      }
+    },
+    "81": {
+      "n_cycles": 213,
+      "true_rul": 8.0,
+      "pooled_only": {
+        "rul_median": 158.0,
+        "rul_p5": 117.0,
+        "rul_p95": 214.0
+      },
+      "one_shot": {
+        "rul_median": 102.0,
+        "rul_p5": 77.0,
+        "rul_p95": 134.0
+      }
+    },
+    "82": {
+      "n_cycles": 162,
+      "true_rul": 9.0,
+      "pooled_only": {
+        "rul_median": 197.0,
+        "rul_p5": 150.0,
+        "rul_p95": 272.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 130.0,
+        "rul_p5": 102.0,
+        "rul_p95": 168.0
+      }
+    },
+    "83": {
+      "n_cycles": 73,
+      "true_rul": 137.0,
+      "pooled_only": {
+        "rul_median": 382.5,
+        "rul_p5": 285.95,
+        "rul_p95": 518.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 255.5,
+        "rul_p5": 200.95,
+        "rul_p95": 331.14999999999986
+      }
+    },
+    "84": {
+      "n_cycles": 172,
+      "true_rul": 58.0,
+      "pooled_only": {
+        "rul_median": 251.0,
+        "rul_p5": 183.95,
+        "rul_p95": 344.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 206.0,
+        "rul_p5": 161.0,
+        "rul_p95": 270.0
+      }
+    },
+    "85": {
+      "n_cycles": 34,
+      "true_rul": 118.0,
+      "pooled_only": {
+        "rul_median": 442.0,
+        "rul_p5": 326.95,
+        "rul_p95": 609.0
+      },
+      "one_shot": {
+        "rul_median": 369.0,
+        "rul_p5": 283.95,
+        "rul_p95": 493.0999999999999
+      }
+    },
+    "86": {
+      "n_cycles": 110,
+      "true_rul": 89.0,
+      "pooled_only": {
+        "rul_median": 323.5,
+        "rul_p5": 244.0,
+        "rul_p95": 426.14999999999986
+      },
+      "one_shot": {
+        "rul_median": 278.0,
+        "rul_p5": 213.0,
+        "rul_p95": 372.04999999999995
+      }
+    },
+    "87": {
+      "n_cycles": 56,
+      "true_rul": 116.0,
+      "pooled_only": {
+        "rul_median": 448.0,
+        "rul_p5": 337.95,
+        "rul_p95": 639.4499999999996
+      },
+      "one_shot": {
+        "rul_median": 309.0,
+        "rul_p5": 242.95,
+        "rul_p95": 404.0999999999999
+      }
+    },
+    "88": {
+      "n_cycles": 68,
+      "true_rul": 115.0,
+      "pooled_only": {
+        "rul_median": 307.0,
+        "rul_p5": 231.95,
+        "rul_p95": 404.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 259.0,
+        "rul_p5": 202.0,
+        "rul_p95": 347.0999999999999
+      }
+    },
+    "89": {
+      "n_cycles": 177,
+      "true_rul": 136.0,
+      "pooled_only": {
+        "rul_median": 294.0,
+        "rul_p5": 217.0,
+        "rul_p95": 392.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 227.0,
+        "rul_p5": 171.9,
+        "rul_p95": 299.0
+      }
+    },
+    "90": {
+      "n_cycles": 146,
+      "true_rul": 28.0,
+      "pooled_only": {
+        "rul_median": 225.0,
+        "rul_p5": 166.95,
+        "rul_p95": 300.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 189.0,
+        "rul_p5": 140.9,
+        "rul_p95": 249.0
+      }
+    },
+    "91": {
+      "n_cycles": 234,
+      "true_rul": 38.0,
+      "pooled_only": {
+        "rul_median": 172.0,
+        "rul_p5": 124.0,
+        "rul_p95": 239.0
+      },
+      "one_shot": {
+        "rul_median": 208.5,
+        "rul_p5": 147.95,
+        "rul_p95": 280.1999999999998
+      }
+    },
+    "92": {
+      "n_cycles": 150,
+      "true_rul": 20.0,
+      "pooled_only": {
+        "rul_median": 184.0,
+        "rul_p5": 136.0,
+        "rul_p95": 248.0
+      },
+      "one_shot": {
+        "rul_median": 213.0,
+        "rul_p5": 155.0,
+        "rul_p95": 299.04999999999995
+      }
+    },
+    "93": {
+      "n_cycles": 244,
+      "true_rul": 85.0,
+      "pooled_only": {
+        "rul_median": 208.0,
+        "rul_p5": 151.95,
+        "rul_p95": 285.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 197.0,
+        "rul_p5": 147.95,
+        "rul_p95": 260.0
+      }
+    },
+    "94": {
+      "n_cycles": 133,
+      "true_rul": 55.0,
+      "pooled_only": {
+        "rul_median": 247.0,
+        "rul_p5": 181.0,
+        "rul_p95": 331.04999999999995
+      },
+      "one_shot": {
+        "rul_median": 222.0,
+        "rul_p5": 172.85000000000002,
+        "rul_p95": 295.0
+      }
+    },
+    "95": {
+      "n_cycles": 89,
+      "true_rul": 128.0,
+      "pooled_only": {
+        "rul_median": 383.5,
+        "rul_p5": 281.9,
+        "rul_p95": 526.0
+      },
+      "one_shot": {
+        "rul_median": 234.0,
+        "rul_p5": 185.0,
+        "rul_p95": 301.04999999999995
+      }
+    },
+    "96": {
+      "n_cycles": 97,
+      "true_rul": 137.0,
+      "pooled_only": {
+        "rul_median": 440.5,
+        "rul_p5": 330.0,
+        "rul_p95": 600.3999999999996
+      },
+      "one_shot": {
+        "rul_median": 262.0,
+        "rul_p5": 208.95,
+        "rul_p95": 344.0999999999999
+      }
+    },
+    "97": {
+      "n_cycles": 134,
+      "true_rul": 82.0,
+      "pooled_only": {
+        "rul_median": 364.0,
+        "rul_p5": 273.0,
+        "rul_p95": 499.3499999999997
+      },
+      "one_shot": {
+        "rul_median": 238.0,
+        "rul_p5": 187.0,
+        "rul_p95": 307.0
+      }
+    },
+    "98": {
+      "n_cycles": 121,
+      "true_rul": 59.0,
+      "pooled_only": {
+        "rul_median": 288.0,
+        "rul_p5": 215.95,
+        "rul_p95": 389.0
+      },
+      "one_shot": {
+        "rul_median": 233.0,
+        "rul_p5": 179.9,
+        "rul_p95": 313.04999999999995
+      }
+    },
+    "99": {
+      "n_cycles": 97,
+      "true_rul": 117.0,
+      "pooled_only": {
+        "rul_median": 466.5,
+        "rul_p5": 352.0,
+        "rul_p95": 684.0999999999999
+      },
+      "one_shot": {
+        "rul_median": 248.0,
+        "rul_p5": 192.0,
+        "rul_p95": 325.0
+      }
+    },
+    "100": {
+      "n_cycles": 198,
+      "true_rul": 20.0,
+      "pooled_only": {
+        "rul_median": 264.0,
+        "rul_p5": 198.0,
+        "rul_p95": 354.1999999999998
+      },
+      "one_shot": {
+        "rul_median": 148.0,
+        "rul_p5": 120.95,
+        "rul_p95": 191.04999999999995
+      }
+    }
+  }
+}
