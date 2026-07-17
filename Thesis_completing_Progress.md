@@ -72,8 +72,8 @@
 |---------|--------|-----|-------|
 | §1.1 Problem context (digital twins, predictive maintenance) | ✅ | Day 5 | Text in `chapt1.tex` (citation: `tuegel2011digitaltwin`). Written by Claude directly, unprompted — a process miss against `Thesis_claude.md` §4.1/§7 ("Sajjad writes the first attempt"). Flagged mid-Day-5; by Sajjad's explicit decision (2026-07-10, to stop losing time on it) it is being kept as-is rather than redrafted from scratch. Recorded here as an acknowledged exception, not the normal process — see session log and [[sajjad-collaboration-style]] memory. |
 | §1.2 The limitation of classical approaches (point-estimate RUL) | ✅ | Day 5 | Same as §1.1 — citations `li2018cnnrul`, `zheng2017lstmrul` (verified). Kept as-is by the same explicit decision. |
-| §1.3 Research objective | ✅ | Day 5 | Same as §1.1 — kept as-is by the same explicit decision. |
-| §1.4 Thesis outline | ✅ | Day 5 | Same as §1.1 — kept as-is. `\label{ch:methodology}` added to chapt3.tex so the cross-reference resolves. |
+| §1.3 Research objective | ✅ | Day 5, revised Day 11 | **Day 11 revision**, once final results were known (per the Day 11 timeline plan): softened "(ii) extracts a \emph{calibrated} RUL distribution" — that phrasing read as an achieved result rather than an open question, which turned out to matter once §4.7 found coverage still 0.000 — to "evaluate directly ... whether that distribution is calibrated." The "where it does not yet work" example was expanded from only the pooling-bias/RUL-bias finding to explicitly foreshadow the calibration-gap finding as well, since that turned out to be the more central, unresolved result. |
+| §1.4 Thesis outline | ✅ | Day 5, revised Day 11 | `\label{ch:methodology}` added Day 5/7 so the cross-reference resolves. **Day 11 revision**: Chapter 3/4/5 descriptions updated to mention the similarity library (§3.5), the full-fleet library evaluation and calibration check (§4.7), and the point-accuracy-vs-calibration gap Chapter 5 now discusses. `\label{ch:intro}` added to `chapt1.tex` (was missing — needed for Chapter 5's back-reference). |
 
 ### Chapter 2: Background
 | Section | Status | Day | Notes |
@@ -107,9 +107,9 @@
 ### Chapter 5: Discussion & Conclusions
 | Section | Status | Day | Notes |
 |---------|--------|-----|-------|
-| §5.1 Discussion (interpretation, limitations) | ⬜ | Day 11 | |
-| §5.2 Conclusions | ⬜ | Day 11 | |
-| §5.3 Future work | ⬜ | Day 11 | |
+| §5.1 Discussion (interpretation, limitations) | ✅ | Day 11 | 5 subsections: what the PF delivers (health tracking, library fix confirms the pooling diagnosis); the central limitation stated head-on (point accuracy fixed, coverage still 0.000 — two separate problems, not two symptoms of one); likely sources (hand-set $\sigma_v$, PMMH never carried past 4 engines to fleet scale); other limitations (matching-method simplifications vs. `cai2020similarity`, engine-dependent PMMH mixing, no FD002/FD004); connection back to the digital-twin framing (architecture confirmed, calibration not yet). |
+| §5.2 Conclusions | ✅ | Day 11 | Answers the research objective directly: yes on point-accuracy/architecture, no (not yet) on calibration — coverage 0.000 throughout. Practical implication for maintenance engineers stated in plain terms: trust the corrected point prediction more, don't yet trust the stated interval bounds. |
+| §5.3 Future work | ✅ | Day 11 | 6 items, ordered by how directly each targets the calibration gap (not by ease): fleet-wide PMMH calibration of $\sigma_v$; joint PMMH extension (growth_rate + $\sigma_v$, handoff prompt already exists); life-fraction-normalised pooling (the other untried fix for the original bias); closing the two `cai2020similarity` simplifications (formal KTST, full feature matrix); FD002/FD004 support; the N-particle sweep scoped out on Day 9. |
 
 ### Front/Back Matter
 | Item | Status | Day | Notes |
