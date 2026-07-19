@@ -49,6 +49,46 @@ absolute numbers, though it's unlikely to flip the one-shot-vs-periodic
 ranking, since both variants share the same matching mechanism and would
 be affected similarly by a better-calibrated sigma_v.
 
+## Update (Day 12) — PMMH-calibrated rerun, prediction confirmed
+
+Ran via Claude Code: `experiments/day10/run_pmmh_joint_fullfleet.py` fit
+(growth_rate, sigma_v) jointly per training engine via PMMH
+(n_particles=3200, n_iterations=1000; 176.6 min wall-clock) — **only
+31/100 chains converged** (accept_rate ≥ 0.10), the rest fell back to the
+regression-fit growth_rate already in this library. Mean accept_rate
+0.107 (range 0.004–0.518); this convergence rate is notably lower than
+the 4-engine diagnostic's 50% (2/4), so the diagnostic set was not
+representative of the full fleet's mixing difficulty — a real finding in
+its own right, not just diagnostic noise (see `Thesis_completing_Progress.md`,
+Day 12 entry, for the per-engine detail).
+
+`experiments/day10/full_fleet_comparison_pmmh.py` then reran the exact
+same comparison (same script, same matching mechanism, same seed) with
+only the library's `growth_rate` swapped to this PMMH/fallback blend:
+
+| variant | mean abs. error | median abs. error | fleet RMSE | error std | mean traj. RMSE | PHM08 total |
+|---|---|---|---|---|---|---|
+| pooled (baseline, unchanged) | 236.5 | 235.2 | 244.3 | 60.9 | 321.8 | 6.90e17 |
+| **one-shot (PMMH)** | **144.7** (was 149.9) | **136.5** (was 140.0) | **152.0** (was 156.0) | 46.7 (was 43.1) | **192.7** (was 199.6) | **9.19e12** |
+| periodic (PMMH) | 154.9 (was 162.6) | 149.0 (was 155.0) | 160.9 (was 166.8) | 43.5 (was 37.4) | 209.6 (was 219.5) | 9.25e12 |
+
+Head-to-head: one-shot beats periodic on 61/100 engines (was 63/100),
+periodic on 29/100 (was 28/100), 9 ties → 10.
+
+**The prediction above holds exactly.** PMMH calibration gives a small,
+consistent accuracy improvement on every point-accuracy metric for both
+variants (~3-5% lower mean/median/RMSE error) — and **does not flip the
+one-shot-vs-periodic decision**: one-shot still wins by essentially the
+same margin (61 vs. 63 out of 100). One new nuance, not previously
+visible: PMMH calibration *increases* the fleet's error standard
+deviation for both variants (one-shot 43.1→46.7, periodic 37.4→43.5) even
+as the mean improves — a handful of engines get a materially different
+matched rate than their regression fit and end up worse off individually,
+even though the fleet average improves. Worth a sentence in §4.7 if this
+rerun is folded into the thesis text, alongside the honest note that
+69/100 of this "PMMH-calibrated" library is actually still the regression
+fit (mixing didn't converge for those engines).
+
 ## Figures produced
 
 - `thesis/Fig/fig_library_fullfleet_comparison.png` — bar chart, mean

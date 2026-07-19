@@ -1,0 +1,812 @@
+{
+  "config": {
+    "exp_id": 30,
+    "n_particles": 3200,
+    "n_iterations": 1000,
+    "rw_step_growth_rate": 0.1,
+    "rw_step_sigma_v": 0.2,
+    "seed": 42
+  },
+  "results": {
+    "1": {
+      "elapsed_s": 85.57201783300843,
+      "accept_rate": 0.065,
+      "growth_rate_mean": 0.004285801757369411,
+      "sigma_v_mean": 0.659594030416162,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.004285801757369411
+    },
+    "2": {
+      "elapsed_s": 124.03315541699703,
+      "accept_rate": 0.449,
+      "growth_rate_mean": 0.0051232101884192685,
+      "sigma_v_mean": 0.428683411812964,
+      "source": "pmmh",
+      "regression_growth_rate": 0.003864628925199456
+    },
+    "3": {
+      "elapsed_s": 86.66968150000321,
+      "accept_rate": 0.133,
+      "growth_rate_mean": 0.0048934066532175385,
+      "sigma_v_mean": 0.6979192611950694,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004577321504192548
+    },
+    "4": {
+      "elapsed_s": 85.66049633300281,
+      "accept_rate": 0.021,
+      "growth_rate_mean": 0.0033289567593419813,
+      "sigma_v_mean": 0.7215367077741323,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0033289567593419813
+    },
+    "5": {
+      "elapsed_s": 126.05543937500624,
+      "accept_rate": 0.303,
+      "growth_rate_mean": 0.005055333497982149,
+      "sigma_v_mean": 0.48505288631340393,
+      "source": "pmmh",
+      "regression_growth_rate": 0.00390950039730627
+    },
+    "6": {
+      "elapsed_s": 93.2298721660045,
+      "accept_rate": 0.013,
+      "growth_rate_mean": 0.0029846492979739114,
+      "sigma_v_mean": 0.9341187916600845,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0029846492979739114
+    },
+    "7": {
+      "elapsed_s": 132.5739584999974,
+      "accept_rate": 0.054,
+      "growth_rate_mean": 0.0036438244062952005,
+      "sigma_v_mean": 0.440186909229959,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0036438244062952005
+    },
+    "8": {
+      "elapsed_s": 85.99577649999992,
+      "accept_rate": 0.024,
+      "growth_rate_mean": 0.003338567409775453,
+      "sigma_v_mean": 0.7073571217872717,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003338567409775453
+    },
+    "9": {
+      "elapsed_s": 120.08050920900132,
+      "accept_rate": 0.403,
+      "growth_rate_mean": 0.005168222890590428,
+      "sigma_v_mean": 0.6051511562710343,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004468892533100107
+    },
+    "10": {
+      "elapsed_s": 127.24873254199338,
+      "accept_rate": 0.274,
+      "growth_rate_mean": 0.005572396295775951,
+      "sigma_v_mean": 0.4377123461447343,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004676204677584735
+    },
+    "11": {
+      "elapsed_s": 142.21819466700254,
+      "accept_rate": 0.214,
+      "growth_rate_mean": 0.0050428816581687234,
+      "sigma_v_mean": 0.4847100450126276,
+      "source": "pmmh",
+      "regression_growth_rate": 0.003786390666406955
+    },
+    "12": {
+      "elapsed_s": 98.28851275000488,
+      "accept_rate": 0.01,
+      "growth_rate_mean": 0.0033336464107575894,
+      "sigma_v_mean": 0.8231505569718189,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0033336464107575894
+    },
+    "13": {
+      "elapsed_s": 98.95415833398874,
+      "accept_rate": 0.008,
+      "growth_rate_mean": 0.003262965965400557,
+      "sigma_v_mean": 0.6121252158598418,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003262965965400557
+    },
+    "14": {
+      "elapsed_s": 110.34480691600766,
+      "accept_rate": 0.006,
+      "growth_rate_mean": 0.0030671824337568407,
+      "sigma_v_mean": 0.8273329913627439,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0030671824337568407
+    },
+    "15": {
+      "elapsed_s": 115.66732920899813,
+      "accept_rate": 0.389,
+      "growth_rate_mean": 0.005848758045643226,
+      "sigma_v_mean": 0.4940519574048697,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0052180664599437735
+    },
+    "16": {
+      "elapsed_s": 132.43945495798835,
+      "accept_rate": 0.014,
+      "growth_rate_mean": 0.0023000751120582303,
+      "sigma_v_mean": 1.1366523378937534,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023000751120582303
+    },
+    "17": {
+      "elapsed_s": 175.66473866700835,
+      "accept_rate": 0.195,
+      "growth_rate_mean": 0.004780139043783528,
+      "sigma_v_mean": 0.4617527879120956,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0032799960886804526
+    },
+    "18": {
+      "elapsed_s": 106.69616020799731,
+      "accept_rate": 0.187,
+      "growth_rate_mean": 0.005113883532513253,
+      "sigma_v_mean": 0.6588397214183592,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004265457358516016
+    },
+    "19": {
+      "elapsed_s": 87.66086520798854,
+      "accept_rate": 0.01,
+      "growth_rate_mean": 0.0033495276583427637,
+      "sigma_v_mean": 0.9026522511151361,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0033495276583427637
+    },
+    "20": {
+      "elapsed_s": 123.83405183399736,
+      "accept_rate": 0.02,
+      "growth_rate_mean": 0.0023408058608551533,
+      "sigma_v_mean": 0.8411187407579295,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023408058608551533
+    },
+    "21": {
+      "elapsed_s": 104.36689124999975,
+      "accept_rate": 0.043,
+      "growth_rate_mean": 0.0029170684806165015,
+      "sigma_v_mean": 0.8739236418712781,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0029170684806165015
+    },
+    "22": {
+      "elapsed_s": 107.1188628749951,
+      "accept_rate": 0.015,
+      "growth_rate_mean": 0.0023317073343813183,
+      "sigma_v_mean": 1.0714043739141337,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023317073343813183
+    },
+    "23": {
+      "elapsed_s": 98.45221358299023,
+      "accept_rate": 0.011,
+      "growth_rate_mean": 0.0034688637014644776,
+      "sigma_v_mean": 0.449759347750413,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0034688637014644776
+    },
+    "24": {
+      "elapsed_s": 81.86664654199558,
+      "accept_rate": 0.036,
+      "growth_rate_mean": 0.005583422143202633,
+      "sigma_v_mean": 0.5704593359541522,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.005583422143202633
+    },
+    "25": {
+      "elapsed_s": 121.99176349998743,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.002471857292234732,
+      "sigma_v_mean": 0.8907125282969757,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002471857292234732
+    },
+    "26": {
+      "elapsed_s": 102.09327241599385,
+      "accept_rate": 0.007,
+      "growth_rate_mean": 0.0023187599706144587,
+      "sigma_v_mean": 0.5915013376993179,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023187599706144587
+    },
+    "27": {
+      "elapsed_s": 80.065177957993,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.003954571125827848,
+      "sigma_v_mean": 0.4094707365004862,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003954571125827848
+    },
+    "28": {
+      "elapsed_s": 83.95038137500524,
+      "accept_rate": 0.403,
+      "growth_rate_mean": 0.005905808521562921,
+      "sigma_v_mean": 0.5815698289091534,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006644774786203482
+    },
+    "29": {
+      "elapsed_s": 87.45613325000159,
+      "accept_rate": 0.016,
+      "growth_rate_mean": 0.004237077855616143,
+      "sigma_v_mean": 0.5831655380630526,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.004237077855616143
+    },
+    "30": {
+      "elapsed_s": 99.60162562500045,
+      "accept_rate": 0.436,
+      "growth_rate_mean": 0.005721575086787412,
+      "sigma_v_mean": 0.5764761552469522,
+      "source": "pmmh",
+      "regression_growth_rate": 0.005478672835837088
+    },
+    "31": {
+      "elapsed_s": 120.96042945800582,
+      "accept_rate": 0.223,
+      "growth_rate_mean": 0.0052975787888268925,
+      "sigma_v_mean": 0.5197726019249373,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004270592201492787
+    },
+    "32": {
+      "elapsed_s": 100.3794489580032,
+      "accept_rate": 0.025,
+      "growth_rate_mean": 0.0026267580738235535,
+      "sigma_v_mean": 1.0167380516466105,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0026267580738235535
+    },
+    "33": {
+      "elapsed_s": 103.59735941600229,
+      "accept_rate": 0.388,
+      "growth_rate_mean": 0.005994357727669279,
+      "sigma_v_mean": 0.4739264950116243,
+      "source": "pmmh",
+      "regression_growth_rate": 0.005424025069833712
+    },
+    "34": {
+      "elapsed_s": 97.94230433400662,
+      "accept_rate": 0.031,
+      "growth_rate_mean": 0.003025399547337996,
+      "sigma_v_mean": 0.9035652621181114,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003025399547337996
+    },
+    "35": {
+      "elapsed_s": 97.8498759590002,
+      "accept_rate": 0.009,
+      "growth_rate_mean": 0.0039727585546854545,
+      "sigma_v_mean": 0.32566467801423754,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0039727585546854545
+    },
+    "36": {
+      "elapsed_s": 86.8900815419911,
+      "accept_rate": 0.005,
+      "growth_rate_mean": 0.0037663116222354464,
+      "sigma_v_mean": 0.1750192501407884,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0037663116222354464
+    },
+    "37": {
+      "elapsed_s": 106.0256353339937,
+      "accept_rate": 0.023,
+      "growth_rate_mean": 0.003874994354386324,
+      "sigma_v_mean": 0.793165427692005,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003874994354386324
+    },
+    "38": {
+      "elapsed_s": 103.88012504200742,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.002713272621590209,
+      "sigma_v_mean": 0.6092045225799905,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002713272621590209
+    },
+    "39": {
+      "elapsed_s": 71.37559229199542,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.0043923425092825,
+      "sigma_v_mean": 0.7738038312510266,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0043923425092825
+    },
+    "40": {
+      "elapsed_s": 97.84971724999195,
+      "accept_rate": 0.013,
+      "growth_rate_mean": 0.0024637835578046174,
+      "sigma_v_mean": 0.9228708870862542,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0024637835578046174
+    },
+    "41": {
+      "elapsed_s": 103.77352462499402,
+      "accept_rate": 0.09,
+      "growth_rate_mean": 0.003998766127276389,
+      "sigma_v_mean": 0.4736407201165307,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003998766127276389
+    },
+    "42": {
+      "elapsed_s": 92.60754912499397,
+      "accept_rate": 0.018,
+      "growth_rate_mean": 0.003980437552472133,
+      "sigma_v_mean": 0.37209771717001044,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003980437552472133
+    },
+    "43": {
+      "elapsed_s": 98.37285658399924,
+      "accept_rate": 0.173,
+      "growth_rate_mean": 0.004915380123974808,
+      "sigma_v_mean": 0.5672120720478931,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0046485855437749315
+    },
+    "44": {
+      "elapsed_s": 89.52951074999874,
+      "accept_rate": 0.071,
+      "growth_rate_mean": 0.00465043609597553,
+      "sigma_v_mean": 0.47818135712106563,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.00465043609597553
+    },
+    "45": {
+      "elapsed_s": 74.26592337500188,
+      "accept_rate": 0.317,
+      "growth_rate_mean": 0.005643614461334969,
+      "sigma_v_mean": 0.6603179121914509,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006371762886334416
+    },
+    "46": {
+      "elapsed_s": 126.58455149999645,
+      "accept_rate": 0.23,
+      "growth_rate_mean": 0.005244178635698837,
+      "sigma_v_mean": 0.4576857939385783,
+      "source": "pmmh",
+      "regression_growth_rate": 0.003960152558977323
+    },
+    "47": {
+      "elapsed_s": 100.41937962500378,
+      "accept_rate": 0.272,
+      "growth_rate_mean": 0.005408451658017166,
+      "sigma_v_mean": 0.3978615490777125,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004817345492543872
+    },
+    "48": {
+      "elapsed_s": 105.72744329199486,
+      "accept_rate": 0.118,
+      "growth_rate_mean": 0.004268957339581832,
+      "sigma_v_mean": 0.6075050499372875,
+      "source": "pmmh",
+      "regression_growth_rate": 0.003335436839870455
+    },
+    "49": {
+      "elapsed_s": 99.16694233399176,
+      "accept_rate": 0.011,
+      "growth_rate_mean": 0.0027181515861601,
+      "sigma_v_mean": 0.6283374274999939,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0027181515861601
+    },
+    "50": {
+      "elapsed_s": 91.25352816699888,
+      "accept_rate": 0.009,
+      "growth_rate_mean": 0.0037107243693069096,
+      "sigma_v_mean": 0.5310655149541508,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0037107243693069096
+    },
+    "51": {
+      "elapsed_s": 98.36917458300013,
+      "accept_rate": 0.198,
+      "growth_rate_mean": 0.005278160405109698,
+      "sigma_v_mean": 0.5759317279818477,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0037742802614432153
+    },
+    "52": {
+      "elapsed_s": 99.58321070901002,
+      "accept_rate": 0.011,
+      "growth_rate_mean": 0.0029078217147915785,
+      "sigma_v_mean": 0.7487846140629993,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0029078217147915785
+    },
+    "53": {
+      "elapsed_s": 91.19548687500355,
+      "accept_rate": 0.008,
+      "growth_rate_mean": 0.0034524456634786706,
+      "sigma_v_mean": 0.3697953363566706,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0034524456634786706
+    },
+    "54": {
+      "elapsed_s": 119.51917366700945,
+      "accept_rate": 0.171,
+      "growth_rate_mean": 0.004860540125838211,
+      "sigma_v_mean": 0.4549727074130455,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0037492276742412205
+    },
+    "55": {
+      "elapsed_s": 95.06466845900286,
+      "accept_rate": 0.029,
+      "growth_rate_mean": 0.0027206755067943826,
+      "sigma_v_mean": 0.9617210908250693,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0027206755067943826
+    },
+    "56": {
+      "elapsed_s": 135.94395541600534,
+      "accept_rate": 0.015,
+      "growth_rate_mean": 0.0017556926921758257,
+      "sigma_v_mean": 0.9542003655105897,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0017556926921758257
+    },
+    "57": {
+      "elapsed_s": 68.68315887499193,
+      "accept_rate": 0.06,
+      "growth_rate_mean": 0.005708289656348911,
+      "sigma_v_mean": 0.76461894520757,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.005708289656348911
+    },
+    "58": {
+      "elapsed_s": 74.52888229099335,
+      "accept_rate": 0.03,
+      "growth_rate_mean": 0.005092345968491004,
+      "sigma_v_mean": 0.8607267794809862,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.005092345968491004
+    },
+    "59": {
+      "elapsed_s": 111.21423991699703,
+      "accept_rate": 0.424,
+      "growth_rate_mean": 0.005549665457396836,
+      "sigma_v_mean": 0.5103623266305233,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0047035895799756805
+    },
+    "60": {
+      "elapsed_s": 84.6927613329899,
+      "accept_rate": 0.032,
+      "growth_rate_mean": 0.003566267401320962,
+      "sigma_v_mean": 0.9448264864804032,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003566267401320962
+    },
+    "61": {
+      "elapsed_s": 90.29895754200697,
+      "accept_rate": 0.513,
+      "growth_rate_mean": 0.006205673663553811,
+      "sigma_v_mean": 0.6084196684039604,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006074587962735758
+    },
+    "62": {
+      "elapsed_s": 90.03308150000521,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.0026908440432577914,
+      "sigma_v_mean": 1.0517434493788065,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0026908440432577914
+    },
+    "63": {
+      "elapsed_s": 85.09446225001011,
+      "accept_rate": 0.01,
+      "growth_rate_mean": 0.0033583118858564074,
+      "sigma_v_mean": 0.24920794883729383,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0033583118858564074
+    },
+    "64": {
+      "elapsed_s": 134.59366299999238,
+      "accept_rate": 0.009,
+      "growth_rate_mean": 0.0023638397333462144,
+      "sigma_v_mean": 0.7217931956053322,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023638397333462144
+    },
+    "65": {
+      "elapsed_s": 74.84821258299053,
+      "accept_rate": 0.2,
+      "growth_rate_mean": 0.006254255996723815,
+      "sigma_v_mean": 0.5867014299513128,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006166385958256373
+    },
+    "66": {
+      "elapsed_s": 98.59878587500134,
+      "accept_rate": 0.02,
+      "growth_rate_mean": 0.002346193811177227,
+      "sigma_v_mean": 1.1717988261907777,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002346193811177227
+    },
+    "67": {
+      "elapsed_s": 147.49561912499485,
+      "accept_rate": 0.009,
+      "growth_rate_mean": 0.0022775726023412358,
+      "sigma_v_mean": 0.636098968489324,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0022775726023412358
+    },
+    "68": {
+      "elapsed_s": 94.99684283300303,
+      "accept_rate": 0.014,
+      "growth_rate_mean": 0.002925280505560223,
+      "sigma_v_mean": 0.8561591585563552,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002925280505560223
+    },
+    "69": {
+      "elapsed_s": 175.61610654200194,
+      "accept_rate": 0.007,
+      "growth_rate_mean": 0.0021674362794374285,
+      "sigma_v_mean": 0.44236065058945884,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0021674362794374285
+    },
+    "70": {
+      "elapsed_s": 69.74601833400084,
+      "accept_rate": 0.014,
+      "growth_rate_mean": 0.004866251937035538,
+      "sigma_v_mean": 0.9282104511057657,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.004866251937035538
+    },
+    "71": {
+      "elapsed_s": 101.87601637499756,
+      "accept_rate": 0.035,
+      "growth_rate_mean": 0.002610062183279004,
+      "sigma_v_mean": 0.8288106370470983,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002610062183279004
+    },
+    "72": {
+      "elapsed_s": 105.47445233400504,
+      "accept_rate": 0.034,
+      "growth_rate_mean": 0.0035860998714264095,
+      "sigma_v_mean": 0.6380660985791026,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0035860998714264095
+    },
+    "73": {
+      "elapsed_s": 111.60553812500439,
+      "accept_rate": 0.021,
+      "growth_rate_mean": 0.0023582947546507194,
+      "sigma_v_mean": 0.9849991053232222,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023582947546507194
+    },
+    "74": {
+      "elapsed_s": 90.29757850000169,
+      "accept_rate": 0.019,
+      "growth_rate_mean": 0.004937515839532528,
+      "sigma_v_mean": 0.371167332641425,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.004937515839532528
+    },
+    "75": {
+      "elapsed_s": 114.95560687500983,
+      "accept_rate": 0.032,
+      "growth_rate_mean": 0.002561729539047202,
+      "sigma_v_mean": 1.0041124835762785,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002561729539047202
+    },
+    "76": {
+      "elapsed_s": 112.4412768750044,
+      "accept_rate": 0.018,
+      "growth_rate_mean": 0.002564251207019543,
+      "sigma_v_mean": 0.8297486617478617,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002564251207019543
+    },
+    "77": {
+      "elapsed_s": 95.69927691700286,
+      "accept_rate": 0.021,
+      "growth_rate_mean": 0.003713603729110449,
+      "sigma_v_mean": 1.007192807098177,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003713603729110449
+    },
+    "78": {
+      "elapsed_s": 117.50319275000948,
+      "accept_rate": 0.518,
+      "growth_rate_mean": 0.005580900324015723,
+      "sigma_v_mean": 0.48885124623167564,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004897537976574203
+    },
+    "79": {
+      "elapsed_s": 100.90548983300687,
+      "accept_rate": 0.324,
+      "growth_rate_mean": 0.005075722052727714,
+      "sigma_v_mean": 0.6019891021750111,
+      "source": "pmmh",
+      "regression_growth_rate": 0.005322405538307875
+    },
+    "80": {
+      "elapsed_s": 109.5861063330085,
+      "accept_rate": 0.004,
+      "growth_rate_mean": 0.002433651664919646,
+      "sigma_v_mean": 0.28928900128509744,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002433651664919646
+    },
+    "81": {
+      "elapsed_s": 140.99874416600505,
+      "accept_rate": 0.017,
+      "growth_rate_mean": 0.002861508208102232,
+      "sigma_v_mean": 0.5617670672345612,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.002861508208102232
+    },
+    "82": {
+      "elapsed_s": 117.61008962499909,
+      "accept_rate": 0.402,
+      "growth_rate_mean": 0.005485591856190982,
+      "sigma_v_mean": 0.5936489204067666,
+      "source": "pmmh",
+      "regression_growth_rate": 0.004578664015805683
+    },
+    "83": {
+      "elapsed_s": 150.50069295799767,
+      "accept_rate": 0.464,
+      "growth_rate_mean": 0.005000651822009377,
+      "sigma_v_mean": 0.4056937763822398,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0037086375700113587
+    },
+    "84": {
+      "elapsed_s": 137.04442858298717,
+      "accept_rate": 0.018,
+      "growth_rate_mean": 0.0017671875630976004,
+      "sigma_v_mean": 1.0600316579881583,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0017671875630976004
+    },
+    "85": {
+      "elapsed_s": 95.49540195798909,
+      "accept_rate": 0.026,
+      "growth_rate_mean": 0.0035341013310307306,
+      "sigma_v_mean": 0.712617053217171,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0035341013310307306
+    },
+    "86": {
+      "elapsed_s": 136.14337975000672,
+      "accept_rate": 0.01,
+      "growth_rate_mean": 0.0023888591083064755,
+      "sigma_v_mean": 0.8278897705300127,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0023888591083064755
+    },
+    "87": {
+      "elapsed_s": 89.46817849999934,
+      "accept_rate": 0.024,
+      "growth_rate_mean": 0.0037059960893203172,
+      "sigma_v_mean": 0.9481100555646751,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0037059960893203172
+    },
+    "88": {
+      "elapsed_s": 105.15521920799802,
+      "accept_rate": 0.029,
+      "growth_rate_mean": 0.0036022940901196433,
+      "sigma_v_mean": 0.4883764556525937,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0036022940901196433
+    },
+    "89": {
+      "elapsed_s": 105.24449995900795,
+      "accept_rate": 0.052,
+      "growth_rate_mean": 0.004126380843399528,
+      "sigma_v_mean": 0.45622578683219966,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.004126380843399528
+    },
+    "90": {
+      "elapsed_s": 78.76185850000184,
+      "accept_rate": 0.142,
+      "growth_rate_mean": 0.005604312676916835,
+      "sigma_v_mean": 0.5591959847783662,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006036321877672244
+    },
+    "91": {
+      "elapsed_s": 71.79994162500952,
+      "accept_rate": 0.022,
+      "growth_rate_mean": 0.0035189192128405244,
+      "sigma_v_mean": 1.456238285987813,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0035189192128405244
+    },
+    "92": {
+      "elapsed_s": 169.15821229199355,
+      "accept_rate": 0.018,
+      "growth_rate_mean": 0.0022243051816118265,
+      "sigma_v_mean": 0.5308678506147342,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.0022243051816118265
+    },
+    "93": {
+      "elapsed_s": 79.29904145900218,
+      "accept_rate": 0.102,
+      "growth_rate_mean": 0.004366516998991401,
+      "sigma_v_mean": 0.6611556437574143,
+      "source": "pmmh",
+      "regression_growth_rate": 0.005849923036160199
+    },
+    "94": {
+      "elapsed_s": 131.34596666700963,
+      "accept_rate": 0.026,
+      "growth_rate_mean": 0.001749727882405176,
+      "sigma_v_mean": 1.0325378060174184,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.001749727882405176
+    },
+    "95": {
+      "elapsed_s": 135.0294890840014,
+      "accept_rate": 0.275,
+      "growth_rate_mean": 0.004810509018423951,
+      "sigma_v_mean": 0.41860932444387344,
+      "source": "pmmh",
+      "regression_growth_rate": 0.0035952870131502725
+    },
+    "96": {
+      "elapsed_s": 173.70629670900234,
+      "accept_rate": 0.012,
+      "growth_rate_mean": 0.00250349407246834,
+      "sigma_v_mean": 0.2935478939943833,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.00250349407246834
+    },
+    "97": {
+      "elapsed_s": 102.44804683300026,
+      "accept_rate": 0.082,
+      "growth_rate_mean": 0.003371414978455253,
+      "sigma_v_mean": 0.6975698464213151,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.003371414978455253
+    },
+    "98": {
+      "elapsed_s": 77.91036033300043,
+      "accept_rate": 0.216,
+      "growth_rate_mean": 0.005436347989947125,
+      "sigma_v_mean": 0.5980298925383264,
+      "source": "pmmh",
+      "regression_growth_rate": 0.006253294136509386
+    },
+    "99": {
+      "elapsed_s": 91.54804454099212,
+      "accept_rate": 0.078,
+      "growth_rate_mean": 0.00461487650844088,
+      "sigma_v_mean": 0.5342417969716113,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.00461487650844088
+    },
+    "100": {
+      "elapsed_s": 109.9648591659934,
+      "accept_rate": 0.015,
+      "growth_rate_mean": 0.00359917269559601,
+      "sigma_v_mean": 0.5104960719960691,
+      "source": "regression_fallback",
+      "regression_growth_rate": 0.00359917269559601
+    }
+  }
+}

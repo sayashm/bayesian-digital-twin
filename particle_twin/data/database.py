@@ -85,6 +85,23 @@ CREATE TABLE IF NOT EXISTS rul_estimates (
     ess         REAL,              -- effective sample size at this timestep
     UNIQUE (exp_id, engine_id, dataset, cycle)
 );
+
+-- engine_parameters: per-engine calibrated model parameters from PMMH or
+-- regression fallback. One row per (exp_id, engine_id, dataset) — records
+-- which growth_rate and sigma_v were actually used, and whether they came
+-- from a converged PMMH chain or the regression library fallback.
+CREATE TABLE IF NOT EXISTS engine_parameters (
+    param_id     INTEGER PRIMARY KEY AUTOINCREMENT,
+    exp_id       INTEGER NOT NULL REFERENCES experiments(exp_id),
+    engine_id    INTEGER NOT NULL,
+    dataset      TEXT    NOT NULL,
+    growth_rate  REAL    NOT NULL,
+    sigma_v      REAL    NOT NULL,
+    source       TEXT    NOT NULL,   -- 'pmmh' or 'regression_fallback'
+    accept_rate  REAL,               -- NULL when source='regression_fallback'
+    n_iterations INTEGER,
+    UNIQUE (exp_id, engine_id, dataset)
+);
 """
 
 
@@ -247,6 +264,39 @@ class ResultsDB:
         )
         # Commit in batches by calling commit() explicitly after the full engine run.
 
+    def store_engine_parameters(
+        self,
+        exp_id: int,
+        engine_id: int,
+        dataset: str,
+        growth_rate: float,
+        sigma_v: float,
+        source: str,
+        accept_rate: float | None = None,
+        n_iterations: int | None = None,
+    ) -> None:
+        """
+        Store per-engine calibrated model parameters (from PMMH or fallback).
+        Overwrites any existing row for the same (exp_id, engine_id, dataset).
+
+        Parameters
+        ----------
+        source : {'pmmh', 'regression_fallback'}
+        accept_rate : float or None — supply when source='pmmh', leave None
+            when source='regression_fallback'.
+        """
+        self._conn.execute(
+            """
+            INSERT OR REPLACE INTO engine_parameters
+                (exp_id, engine_id, dataset, growth_rate, sigma_v,
+                 source, accept_rate, n_iterations)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (exp_id, engine_id, dataset, growth_rate, sigma_v,
+             source, accept_rate, n_iterations),
+        )
+        self._conn.commit()
+
     def commit(self) -> None:
         """Explicitly commit pending writes (use after a full engine run)."""
         self._conn.commit()
@@ -274,6 +324,14 @@ class ResultsDB:
             ORDER BY cycle
             """,
             (exp_id, engine_id, dataset),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    def get_engine_parameters(self, exp_id: int) -> list[dict]:
+        """Return all per-engine parameter rows for an experiment."""
+        rows = self._conn.execute(
+            "SELECT * FROM engine_parameters WHERE exp_id = ? ORDER BY engine_id",
+            (exp_id,),
         ).fetchall()
         return [dict(r) for r in rows]
 
