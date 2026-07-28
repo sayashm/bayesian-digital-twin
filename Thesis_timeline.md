@@ -1,8 +1,10 @@
 # Thesis Timeline
 **Student:** Sajjad Ayashmand  
-**Thesis Deadline:** Mid-August 2026  
+**Thesis Deadline:** **24 August 2026** — official MStat (Statistical Data Analysis) submission deadline, confirmed by promotor De Turck on 27 Jul 2026 (was previously noted as "mid-August").  
 **Focused Work Period:** Two free weeks starting ~June 29, 2026  
-**Last updated:** June 28, 2026
+**Last updated:** July 27, 2026
+
+> **Status (27 Jul 2026):** Full first draft complete — all 5 chapters + abstract + acknowledgements written; final calibrated results (`experiments/final_experiment/`) in place; Ch4 uses best/worst-per-method figures for FD001 & FD003. Draft PDF + code zip prepared for the promotor. **Open items:** (1) send the code-reply + Plevoets emails; (2) **Plato action** — thesis subject not yet transferred to AY 2025–2026, must email dr. Koen Plevoets; (3) optional Appendix (Code Architecture) still a stub; (4) await supervisor feedback, then revision passes toward the 24 Aug deadline.
 
 ---
 

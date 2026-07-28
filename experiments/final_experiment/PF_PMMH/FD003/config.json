@@ -1,0 +1,18 @@
+{
+  "exp_id": 56,
+  "mu_fail": 0.44180174280225537,
+  "sigma_fail": 0.14688971661451694,
+  "growth_rate_pmmh": 0.00181196411117098,
+  "sigma_v_pmmh": 0.6584564798331428,
+  "library_exp_id": 50,
+  "pmmh_summary": {
+    "library_exp_id": 50,
+    "n_engines": 100,
+    "n_pmmh_converged": 8,
+    "n_regression_fallback": 92,
+    "growth_rate_mean": 0.00181196411117098,
+    "growth_rate_std": 0.0013176858450076143,
+    "sigma_v_mean": 0.6584564798331428,
+    "sigma_v_std": 0.17945683325119213
+  }
+}

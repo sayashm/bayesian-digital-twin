@@ -11,11 +11,11 @@
     "rw_step_growth_rate": 0.1,
     "rw_step_sigma_v": 0.2,
     "seed": 42,
-    "exp_id": 29
+    "exp_id": 31
   },
   "results": {
     "1": {
-      "elapsed_s": 83.21884062499157,
+      "elapsed_s": 87.62971758298227,
       "accept_rate": 0.065,
       "growth_rate_mean": 0.004285801757369411,
       "sigma_v_mean": 0.659594030416162,
@@ -47,7 +47,7 @@
       ]
     },
     "10": {
-      "elapsed_s": 100.90742450000835,
+      "elapsed_s": 100.65926279098494,
       "accept_rate": 0.274,
       "growth_rate_mean": 0.005572396295775951,
       "sigma_v_mean": 0.4377123461447343,
@@ -79,7 +79,7 @@
       ]
     },
     "20": {
-      "elapsed_s": 100.3499908340018,
+      "elapsed_s": 105.51796925000963,
       "accept_rate": 0.02,
       "growth_rate_mean": 0.0023408058608551533,
       "sigma_v_mean": 0.8411187407579295,
@@ -111,7 +111,7 @@
       ]
     },
     "30": {
-      "elapsed_s": 88.4593529170088,
+      "elapsed_s": 91.58642712500296,
       "accept_rate": 0.436,
       "growth_rate_mean": 0.005721575086787412,
       "sigma_v_mean": 0.5764761552469522,
@@ -143,5 +143,5 @@
       ]
     }
   },
-  "total_elapsed_s": 372.96667254099157
+  "total_elapsed_s": 385.43433191700024
 }

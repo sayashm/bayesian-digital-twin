@@ -1,0 +1,17 @@
+{
+  "library_exp_id": 35,
+  "library_summary": {
+    "n_engines": 100,
+    "growth_rate_mean": 0.0038945316604120954,
+    "growth_rate_std": 0.0012307102351208658,
+    "growth_rate_min": 0.001749727882405176,
+    "growth_rate_max": 0.006254255996723815,
+    "sigma_v_mean": 0.6643528971813291,
+    "sigma_v_std": 0.23384798460962863,
+    "n_pmmh": 31,
+    "n_regression": 0,
+    "n_regression_fallback": 69
+  },
+  "one_shot_exp_id": 47,
+  "periodic_exp_id": 48
+}

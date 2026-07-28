@@ -14,6 +14,17 @@ data/cmapss/
 # Sandbox/mount artifacts (Cowork session), not real project files
 mount_write_test*
 .fuse_hidden*
+ziiycJGz
+
+# Derived deliverables (regenerable, not source) — build these on demand
+*.zip
+Ayashm_thesis_draft_*.pdf
+
+# Per-engine experiment figure dumps (large, regenerable from results.db)
+experiments/**/figures/
+experiments/**/figures_bak/
+experiments/**/_pre_*/
+experiments/IDA/output/
 
 # LaTeX build artifacts (local compilation via VS Code)
 thesis/*.aux

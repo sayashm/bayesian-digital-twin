@@ -1,0 +1,2 @@
+strategy,fleet_rmse,fleet_mae,fleet_mape,mean_trajectory_rmse,median_trajectory_rmse,ci_coverage,phm08_total,n_engines
+fixed_parameters,98.32030563418728,79.555,1.3469101467823197,128.48396210011063,130.43609221365324,0.49,33984640731.754505,100

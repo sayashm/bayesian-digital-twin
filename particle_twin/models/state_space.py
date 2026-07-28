@@ -35,11 +35,40 @@ index that needs a sensor-specific linear map.
 
 from __future__ import annotations
 
+import copy
+
 import numpy as np
 
 from particle_twin.features.health_index import HealthIndexBuilder
 from particle_twin.models.degradation_learner import DegradationModelLearner
 from particle_twin.models.measurement_learner import MeasurementModelLearner
+
+
+class _MatchedDynamics:
+    """Minimal stand-in for DegradationModelLearner, used by
+    DegradationModel.with_matched_dynamics() below. Exposes only what
+    DegradationModel.transition() actually reads (.dynamics_func);
+    growth_rate is kept for logging/diagnostics only."""
+
+    def __init__(self, dynamics_func, growth_rate: float):
+        self.dynamics_func = dynamics_func
+        self.growth_rate = growth_rate
+
+
+def _exponential_dynamics(growth_rate: float, sigma_v: float):
+    """Same functional form as DegradationModelLearner._fit_exponential's
+    exponential_dynamics, but with an externally supplied (growth_rate,
+    sigma_v) pair instead of one fitted from this model's own pooled data.
+    Used by with_matched_dynamics() for per-engine similarity matching
+    (particle_twin/library/) and PMMH calibration (particle_twin/inference/pmmh.py),
+    where the shape stays exponential but the rate/noise vary per engine
+    or per MCMC step."""
+    def dyn(health, dt=1):
+        damage = 100 - health
+        new_damage = damage * np.exp(growth_rate * dt)
+        noise = np.random.normal(0, sigma_v, size=np.shape(health))
+        return np.clip(100 - new_damage + noise, 0, 100)
+    return dyn
 
 
 class DegradationModel:
@@ -211,3 +240,27 @@ class DegradationModel:
         if self.hi_builder is None:
             raise RuntimeError("Call .fit(train_df) before .observe().")
         return self.hi_builder.transform(df) / 100.0
+
+    def with_matched_dynamics(self, growth_rate: float, sigma_v: float) -> "DegradationModel":
+        """
+        Shallow-copy this model (sharing hi_builder/measurement_learner --
+        both stay fleet-fit, unchanged) and swap in an exponential
+        dynamics_func using an externally supplied (growth_rate, sigma_v)
+        pair instead of this model's own fitted degradation_learner.
+
+        This is the "model-swap" mechanism behind the Day 10/11 per-engine
+        reference-library similarity matching (particle_twin/library/) and
+        the Day 12 joint PMMH calibration (particle_twin/inference/pmmh.py)
+        -- both need a DIFFERENT (growth_rate, sigma_v) pair per engine or
+        per MCMC step without re-fitting the (comparatively expensive,
+        fleet-shared) HI builder or measurement noise model every time.
+
+        Requires .fit() to have been called first.
+        """
+        if self.hi_builder is None:
+            raise RuntimeError("Call .fit(train_df) before .with_matched_dynamics().")
+        matched = copy.copy(self)
+        matched.degradation_learner = _MatchedDynamics(
+            _exponential_dynamics(growth_rate, sigma_v), growth_rate
+        )
+        return matched

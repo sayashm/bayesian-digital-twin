@@ -38,7 +38,7 @@ from particle_twin.data.loader import CMAPSSLoader
 from particle_twin.data.database import ResultsDB
 from particle_twin.models.state_space import DegradationModel
 from particle_twin.filters.bootstrap import BootstrapPF
-from particle_twin.analysis.rul import extract_rul, extract_rul_trajectory
+from particle_twin.analysis.rul import extract_rul, extract_rul_trajectory, to_db_row
 
 np.random.seed(42)
 
@@ -111,7 +111,11 @@ for uid in TEST_ENGINES:
     db.register_engine(engine_id=uid, dataset=DATASET, split="test",
                         n_cycles=len(engine_df), true_rul=true_val)
     for estimate in trajectory:
-        db.store_rul_timeseries(exp_id=exp_id, engine_id=uid, dataset=DATASET, **estimate)
+        # to_db_row(): store_rul_timeseries() takes explicit kwargs (no
+        # **kwargs), so a v2 estimate dict (rul_bayes, frac_censored, ...)
+        # would otherwise raise TypeError on unpacking -- see rul.py's
+        # "BACKWARD COMPATIBILITY" docstring section.
+        db.store_rul_timeseries(exp_id=exp_id, engine_id=uid, dataset=DATASET, **to_db_row(estimate))
     db.commit()
 
     mean_ess = np.mean([e['ess'] for e in trajectory])

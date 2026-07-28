@@ -81,7 +81,12 @@ CREATE TABLE IF NOT EXISTS rul_estimates (
     rul_p95     REAL    NOT NULL,  -- 95th percentile (90% CI upper)
     rul_mean    REAL    NOT NULL,  -- particle mean
     rul_std     REAL    NOT NULL,  -- particle std
-    health_mean REAL,              -- mean health index h_t across particles
+    health_mean REAL,              -- weighted mean health index h_t across particles
+    health_median REAL,            -- unweighted median of health index particles (added Day 13;
+                                    -- unweighted to match rul_p5/rul_median/rul_p95's own convention,
+                                    -- all computed from the SAME resampled unweighted particle set)
+    health_p5   REAL,              -- 5th percentile of health index particles (added Day 13)
+    health_p95  REAL,              -- 95th percentile of health index particles (added Day 13)
     ess         REAL,              -- effective sample size at this timestep
     UNIQUE (exp_id, engine_id, dataset, cycle)
 );
@@ -136,9 +141,34 @@ class ResultsDB:
     # ------------------------------------------------------------------
 
     def _initialise_schema(self) -> None:
-        """Create tables if they do not already exist."""
+        """Create tables if they do not already exist, then apply any
+        column additions to tables that already existed before those
+        columns were introduced (see _migrate_schema)."""
         self._conn.executescript(SCHEMA_SQL)
+        self._migrate_schema()
         self._conn.commit()
+
+    def _migrate_schema(self) -> None:
+        """
+        Add columns introduced after a table's original CREATE TABLE, for
+        db files created before this addition. SQLite's `ALTER TABLE ...
+        ADD COLUMN` errors if the column already exists, so this is
+        guarded by checking PRAGMA table_info first -- safe to call on
+        every connection, including brand-new databases (where
+        SCHEMA_SQL's CREATE TABLE already has the columns and this is a
+        no-op).
+
+        Day 13: health_p5/health_p95 added to rul_estimates, for the
+        final_experiment health-index credible interval (previously only
+        health_mean was stored, no percentiles).
+        """
+        existing_cols = {row[1] for row in self._conn.execute("PRAGMA table_info(rul_estimates)")}
+        if "health_p5" not in existing_cols:
+            self._conn.execute("ALTER TABLE rul_estimates ADD COLUMN health_p5 REAL")
+        if "health_p95" not in existing_cols:
+            self._conn.execute("ALTER TABLE rul_estimates ADD COLUMN health_p95 REAL")
+        if "health_median" not in existing_cols:
+            self._conn.execute("ALTER TABLE rul_estimates ADD COLUMN health_median REAL")
 
     # ------------------------------------------------------------------
     # Experiments
@@ -193,6 +223,13 @@ class ResultsDB:
     ) -> None:
         """
         Add an engine to the catalogue (INSERT OR REPLACE — idempotent).
+
+        engine_id/n_cycles are cast to native int here: numpy.int64 (e.g.
+        straight from a pandas `unit_id` column, unconverted) is NOT a
+        subclass of Python's int, so sqlite3 silently stores it as an
+        8-byte BLOB via the buffer protocol instead of an INTEGER --
+        no error raised, just a wrong-typed column. Cast defensively at
+        this boundary so no caller can trigger that silently.
         """
         self._conn.execute(
             """
@@ -200,7 +237,8 @@ class ResultsDB:
                 (engine_id, dataset, split, n_cycles, true_rul)
             VALUES (?, ?, ?, ?, ?)
             """,
-            (engine_id, dataset, split, n_cycles, true_rul),
+            (int(engine_id), dataset, split,
+             int(n_cycles) if n_cycles is not None else None, true_rul),
         )
         self._conn.commit()
 
@@ -221,6 +259,9 @@ class ResultsDB:
         """
         Store per-engine summary metrics for one experiment run.
         Overwrites any existing row for the same (exp_id, engine_id, dataset).
+
+        exp_id/engine_id cast to native int -- see register_engine()'s
+        docstring for why (numpy.int64 silently BLOB-encodes otherwise).
         """
         self._conn.execute(
             """
@@ -228,7 +269,7 @@ class ResultsDB:
                 (exp_id, engine_id, dataset, rmse, mape, mean_ess, runtime_s)
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (exp_id, engine_id, dataset, rmse, mape, mean_ess, runtime_s),
+            (int(exp_id), int(engine_id), dataset, rmse, mape, mean_ess, runtime_s),
         )
         self._conn.commit()
 
@@ -244,23 +285,39 @@ class ResultsDB:
         rul_mean: float,
         rul_std: float,
         health_mean: float | None = None,
+        health_median: float | None = None,
+        health_p5: float | None = None,
+        health_p95: float | None = None,
         ess: float | None = None,
     ) -> None:
         """
-        Store the RUL posterior summary at a single timestep.
-        Call once per cycle inside the particle filter loop.
+        Store the RUL (and, since Day 13, health-index) posterior summary
+        at a single timestep. Call once per cycle inside the particle
+        filter loop.
+
+        health_median/health_p5/health_p95 (Day 13 addition,
+        particle_twin/library/'s SimilarityStreamingFilter.
+        extract_health_trajectory) are optional and default to None for
+        callers that only ever stored health_mean (every call site before
+        the final_experiment pipeline).
+
+        exp_id/engine_id/cycle cast to native int -- see register_engine()'s
+        docstring for why (numpy.int64 silently BLOB-encodes otherwise;
+        this bit `cycle` specifically the first time final_experiment/
+        02_run_experiment.py ran, since pf.history's cycle_number is
+        numpy.int64 straight off a pandas column).
         """
         self._conn.execute(
             """
             INSERT OR REPLACE INTO rul_estimates
                 (exp_id, engine_id, dataset, cycle,
                  rul_median, rul_p5, rul_p95, rul_mean, rul_std,
-                 health_mean, ess)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 health_mean, health_median, health_p5, health_p95, ess)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
-            (exp_id, engine_id, dataset, cycle,
+            (int(exp_id), int(engine_id), dataset, int(cycle),
              rul_median, rul_p5, rul_p95, rul_mean, rul_std,
-             health_mean, ess),
+             health_mean, health_median, health_p5, health_p95, ess),
         )
         # Commit in batches by calling commit() explicitly after the full engine run.
 
@@ -284,6 +341,13 @@ class ResultsDB:
         source : {'pmmh', 'regression_fallback'}
         accept_rate : float or None — supply when source='pmmh', leave None
             when source='regression_fallback'.
+
+        exp_id/engine_id/n_iterations cast to native int -- see
+        register_engine()'s docstring for why (numpy.int64 silently
+        BLOB-encodes otherwise; this bit `engine_id` specifically the
+        first time particle_twin.library.ReferenceLibrary.to_db() ran,
+        since build_from_regression()'s engine ids came straight from an
+        uncast pandas `unit_id` column).
         """
         self._conn.execute(
             """
@@ -292,8 +356,8 @@ class ResultsDB:
                  source, accept_rate, n_iterations)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """,
-            (exp_id, engine_id, dataset, growth_rate, sigma_v,
-             source, accept_rate, n_iterations),
+            (int(exp_id), int(engine_id), dataset, growth_rate, sigma_v,
+             source, accept_rate, int(n_iterations) if n_iterations is not None else None),
         )
         self._conn.commit()
 

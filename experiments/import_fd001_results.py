@@ -17,6 +17,7 @@ Run from the repo root (after pulling/copying fd001_full_results.json):
 import json
 
 from particle_twin.data.database import ResultsDB
+from particle_twin.analysis.rul import to_db_row
 
 JSON_IN = "experiments/fd001_full_results.json"
 
@@ -40,7 +41,12 @@ for uid_str, rec in engines.items():
     db.register_engine(engine_id=uid, dataset=config['dataset'], split="test",
                         n_cycles=rec['n_cycles'], true_rul=rec['true_rul'])
     for estimate in rec['trajectory']:
-        db.store_rul_timeseries(exp_id=exp_id, engine_id=uid, dataset=config['dataset'], **estimate)
+        # to_db_row(): store_rul_timeseries() takes explicit kwargs (no
+        # **kwargs), so a v2-generated estimate dict (rul_bayes, frac_censored,
+        # ...) would otherwise raise TypeError on unpacking -- see rul.py's
+        # "BACKWARD COMPATIBILITY" docstring section.
+        db.store_rul_timeseries(exp_id=exp_id, engine_id=uid, dataset=config['dataset'],
+                                 **to_db_row(estimate))
     db.commit()
 
     ev = rec['metrics']

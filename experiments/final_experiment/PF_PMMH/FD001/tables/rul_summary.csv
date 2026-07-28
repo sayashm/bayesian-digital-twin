@@ -1,0 +1,2 @@
+strategy,fleet_rmse,fleet_mae,fleet_mape,mean_trajectory_rmse,median_trajectory_rmse,ci_coverage,phm08_total,n_engines
+pmmh_pooled,52.87780725408345,41.255,0.7691047184481663,80.03561322431744,72.65676025134312,0.68,3666089.473009127,100

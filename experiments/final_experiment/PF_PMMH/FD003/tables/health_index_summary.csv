@@ -1,0 +1,2 @@
+strategy,mean_trajectory_rmse,median_trajectory_rmse,mean_trajectory_mae,median_trajectory_mae,pooled_rmse,pooled_mae,ci_coverage,n_engines,n_cycles_total
+pmmh_pooled,0.0730404185439915,0.07138791465964597,0.04901841680646174,0.044734274656388115,0.06660333834341393,0.04163061591827267,0.7459026271390696,100,16596

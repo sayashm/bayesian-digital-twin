@@ -91,6 +91,14 @@ def mape(preds, trues, eps: float = 1.0) -> float:
     return float(np.mean(percentage_error(preds, trues, eps=eps)))
 
 
+def mae(preds, trues) -> float:
+    """Mean absolute error. Same dual use as rmse()/mape() -- across
+    engines (fleet MAE) or across cycles within one engine (trajectory
+    MAE) -- same formula either way. Added Day 13 for the
+    final_experiment health-index/RUL summary tables."""
+    return float(np.mean(absolute_error(preds, trues)))
+
+
 # ----------------------------------------------------------------------
 # ESS summary (filter health diagnostic, not a prediction-error metric)
 # ----------------------------------------------------------------------

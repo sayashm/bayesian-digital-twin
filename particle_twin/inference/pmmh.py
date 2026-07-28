@@ -20,10 +20,13 @@ change of variables sigma_v = exp(u), d(sigma_v) = sigma_v * du.
 Joint calibration (Day 10/11 extension)
 ----------------------------------------
 pmmh_sample_joint() extends the above to jointly sample (growth_rate,
-sigma_v) per engine, using a Day-10-style model-swap (matched_model_from)
+sigma_v) per engine, using the Day-10-style model-swap mechanism
+(DegradationModel.with_matched_dynamics(), particle_twin/models/state_space.py)
 instead of re-fitting DegradationModel/DegradationModelLearner from
 scratch on each MCMC step. The HI builder and measurement noise are shared
 from a pre-fitted pooled model; only the dynamics_func changes each step.
+This same model-swap method is reused by particle_twin/library/ for the
+per-engine reference-library similarity matching (Day 10/11).
 
 growth_rate is also sampled in log-space (it is always positive and spans
 ~4x across the 100-engine library: 0.00175–0.00664). Independent step
@@ -32,8 +35,6 @@ sizes per dimension: growth_rate's log-space scale ~0.3 vs. sigma_v's
 accept_rate < FALLBACK_ACCEPT_THRESHOLD the growth_rate estimate is not
 trustworthy; the caller can supply a regression_growth_rate fallback.
 """
-
-import copy
 
 import numpy as np
 import pandas as pd
@@ -80,40 +81,6 @@ def log_prior_growth_rate(growth_rate: float) -> float:
     the log-space random-walk proposal.
     """
     return stats.norm(loc=GROWTH_RATE_PRIOR_MU, scale=GROWTH_RATE_PRIOR_SIGMA).logpdf(growth_rate)
-
-
-# ---------------------------------------------------------------------------
-# Model-swap helpers for the joint PMMH (mirrors the Day-10 prototype in
-# experiments/day10/similarity_library_prototype.py — kept here so the
-# package doesn't depend on the experiments/ tree).
-# ---------------------------------------------------------------------------
-
-def _make_matched_dynamics(growth_rate: float, sigma_v: float):
-    """Exponential damage dynamics closure with specific growth_rate and sigma_v."""
-    def dyn(health, dt=1):
-        damage = 100 - health
-        new_damage = damage * np.exp(growth_rate * dt)
-        noise = np.random.normal(0, sigma_v, size=np.shape(health))
-        return np.clip(100 - new_damage + noise, 0, 100)
-    return dyn
-
-
-class _StubLearner:
-    """Minimal stand-in for DegradationModelLearner — only .dynamics_func
-    is read by DegradationModel.transition(); growth_rate is kept for logging."""
-    def __init__(self, dynamics_func, growth_rate: float):
-        self.dynamics_func = dynamics_func
-        self.growth_rate = growth_rate
-
-
-def _matched_model_from(pooled_model: DegradationModel, growth_rate: float,
-                         sigma_v: float) -> DegradationModel:
-    """Shallow-copy pooled_model and swap in a (growth_rate, sigma_v)-specific
-    dynamics_func. The HI builder and measurement_learner are shared (fleet-fit,
-    unchanged across MCMC steps) — only the transition dynamics change."""
-    mm = copy.copy(pooled_model)
-    mm.degradation_learner = _StubLearner(_make_matched_dynamics(growth_rate, sigma_v), growth_rate)
-    return mm
 
 
 def run_pf_for_sigma_v(sigma_v: float, train_df: pd.DataFrame, engine_df: pd.DataFrame,
@@ -250,7 +217,9 @@ def run_pf_for_params(
     Unlike run_pf_for_sigma_v, this does NOT re-fit the HI builder or
     measurement noise on each call — both are shared from the pre-fitted
     pooled_model. Only the transition dynamics_func changes, which is the
-    entire point of the Day-10 model-swap mechanism.
+    entire point of the Day-10 model-swap mechanism (DegradationModel.
+    with_matched_dynamics(), also reused by particle_twin/library/ for the
+    per-engine reference-library similarity matching).
 
     Parameters
     ----------
@@ -258,7 +227,7 @@ def run_pf_for_params(
         Must already have .fit(train_df) called. HI builder and measurement
         noise are reused as-is; only the dynamics are overridden.
     """
-    model = _matched_model_from(pooled_model, growth_rate, sigma_v)
+    model = pooled_model.with_matched_dynamics(growth_rate, sigma_v)
     pf = BootstrapPF(model=model, n_particles=n_particles)
     pf.run(engine_df=engine_df)
     return pf.log_likelihood_total
